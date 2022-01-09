@@ -1,15 +1,15 @@
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              https://hyde.getpoole.com
+title:            Eletei
+tagline:          'The enlightened site'
+description:      'Made by yours truly. </br></br>Fact: the masses will enter the the critical stage of the dejection process in around a 8.0 years. Until then, we shall meet again.</br></br>'
+# url:              https://hyde.getpoole.com
 baseurl:          ''
-paginate:         5
+paginate:         5 # display 5 posts at first. Then scroll down to load more posts (aka pages)
 
 # About and contact
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Jason Qin'
+  # url:            https://twitter.com/mdo
 
 # Gems
 plugins:
