@@ -4,13 +4,28 @@
  <title>Eletei</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-01-09T23:38:12+11:00</updated>
+ <updated>2022-01-11T12:56:25+11:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Jason Qin</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Damn, writing an OS is a lot of stuff</title>
+   <link href="http://localhost:4000/2021/11/01/arm-os.html"/>
+   <updated>2021-11-01T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2021/11/01/arm-os</id>
+   <content type="html">&lt;h2 id=&quot;wow&quot;&gt;Wow&lt;/h2&gt;
+&lt;p&gt;Theres many considerations.
+I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.&lt;/p&gt;
+
+&lt;p&gt;But rn the stuff are mostly like, drivers, security and safety, extensibility &amp;amp; maintainability -&amp;gt; I think this could be intrinsic if we have a simple model, also kernel services API for implemnting programming language compilers.&lt;/p&gt;
+
+&lt;p&gt;Biggest thing though is, well i just feel embarrassed to say but. Yea running the actual arm OS on bare metal. In theory should be relatively straightforward compared to x86. But the virtual memory/paging seems to be quite different and non existent in some cases. Also multiboot isnt supported apparently in the rust bootloader crate. But https://github.com/jncronin/rpi-boot/blob/master/MULTIBOOT-ARM describes a way to do it from scratch, so I guess I can wrap around it in unsafe C/asm blocks.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Finally, the enlightenment shall begin</title>
@@ -20,6 +35,9 @@
    <content type="html">&lt;p&gt;
 It took some time, but it worked in the end.
 &lt;/p&gt;
+
+&lt;h2 id=&quot;eletei-the-one-and-true-religion&quot;&gt;Eletei, the one and true religion&lt;/h2&gt;
+&lt;p&gt;Eletei is a religion of truth and progress. Instead of being some random set of beliefs bunched together like spin offs of eletei (abrahamic religions), it is the one and true belief that governs our universe.&lt;/p&gt;
 </content>
  </entry>
  

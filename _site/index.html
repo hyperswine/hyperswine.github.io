@@ -75,6 +75,25 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="http://localhost:4000/2021/11/01/arm-os.html">
+        Damn, writing an OS is a lot of stuff
+      </a>
+    </h1>
+
+    <span class="post-date">01 Nov 2021</span>
+
+    <h2 id="wow">Wow</h2>
+<p>Theres many considerations.
+I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.</p>
+
+<p>But rn the stuff are mostly like, drivers, security and safety, extensibility &amp; maintainability -&gt; I think this could be intrinsic if we have a simple model, also kernel services API for implemnting programming language compilers.</p>
+
+<p>Biggest thing though is, well i just feel embarrassed to say but. Yea running the actual arm OS on bare metal. In theory should be relatively straightforward compared to x86. But the virtual memory/paging seems to be quite different and non existent in some cases. Also multiboot isnt supported apparently in the rust bootloader crate. But https://github.com/jncronin/rpi-boot/blob/master/MULTIBOOT-ARM describes a way to do it from scratch, so I guess I can wrap around it in unsafe C/asm blocks.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="http://localhost:4000/2021/09/01/post.html">
         Finally, the enlightenment shall begin
       </a>
@@ -85,6 +104,9 @@
     <p>
 It took some time, but it worked in the end.
 </p>
+
+<h2 id="eletei-the-one-and-true-religion">Eletei, the one and true religion</h2>
+<p>Eletei is a religion of truth and progress. Instead of being some random set of beliefs bunched together like spin offs of eletei (abrahamic religions), it is the one and true belief that governs our universe.</p>
 
   </div>
   
