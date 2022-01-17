@@ -4,7 +4,7 @@
  <title>Eletei</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-01-11T12:56:25+11:00</updated>
+ <updated>2022-01-17T12:41:05+11:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Jason Qin</name>
@@ -13,10 +13,27 @@
 
  
  <entry>
+   <title>Kernel Idea</title>
+   <link href="http://localhost:4000/2022/01/17/neutron.html"/>
+   <updated>2022-01-17T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/17/neutron</id>
+   <content type="html">&lt;h2 id=&quot;problems-with-existing-oses&quot;&gt;Problems with Existing OSes&lt;/h2&gt;
+&lt;p&gt;One of the main problems I see with existing OSes is that devs are building too much on what is already there rather than building something new.
+I dont find it fun to build on an ancient foundation. Back in the 60s-90s there were no multicore CPUs and hardly any hardware security. Programming practices were also much more loose and people of all kinds of backgrounds and styles came together and wrote code. But they started to realise as the tech improved so needed the software. As the popularity improved, so needed the software quality.
+Things like abstractions, layers, hierarchies were built for scientists and record keepers to easily deal with. But now, these devices are used by everyone. When was the last time you needed to use a hierarchical filesystem. When was the last time you cared about a separate user and kernel space? When was the last time you needed support for a bunch of standards and APIs? When was the last time you needed an ethernet port for your laptop or mobile phone?&lt;/p&gt;
+
+&lt;h2 id=&quot;neutron&quot;&gt;Neutron&lt;/h2&gt;
+&lt;p&gt;What if we make the things that are most frequently used, first class citizens. And prioritise the new stuff that is coming out. Then the stuff that is hardly used, can be a compatibility layer or extension module which you can turn on by your own volition in the settings.
+What if instead of putting everything together like a frankenstein we build everything from scratch, hardware all the way to software? Wouldnt that be cool!
+We would have extremely fine control over everything. We could optimise the hardware and software together, make the right compromises where necessary and prioritise the things the people truly want, for the entire shebang.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Damn, writing an OS is a lot of stuff</title>
-   <link href="http://localhost:4000/2021/11/01/arm-os.html"/>
-   <updated>2021-11-01T00:00:00+11:00</updated>
-   <id>http://localhost:4000/2021/11/01/arm-os</id>
+   <link href="http://localhost:4000/2022/01/11/arm-os.html"/>
+   <updated>2022-01-11T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/11/arm-os</id>
    <content type="html">&lt;h2 id=&quot;wow&quot;&gt;Wow&lt;/h2&gt;
 &lt;p&gt;Theres many considerations.
 I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.&lt;/p&gt;
@@ -29,9 +46,9 @@ I dont want to say but unfortunately I dont have much rust experience and find i
  
  <entry>
    <title>Finally, the enlightenment shall begin</title>
-   <link href="http://localhost:4000/2021/09/01/post.html"/>
-   <updated>2021-09-01T00:00:00+10:00</updated>
-   <id>http://localhost:4000/2021/09/01/post</id>
+   <link href="http://localhost:4000/2022/01/09/post.html"/>
+   <updated>2022-01-09T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/09/post</id>
    <content type="html">&lt;p&gt;
 It took some time, but it worked in the end.
 &lt;/p&gt;
