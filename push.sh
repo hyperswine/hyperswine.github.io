@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-bundle exec jekyll b && gitpush
+git add . && git commit -m "Add post" && git push
