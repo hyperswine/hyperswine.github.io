@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Eletei</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <link href="http://localhost:4000/"/>
- <updated>2022-01-17T12:41:05+11:00</updated>
- <id>http://localhost:4000</id>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2022-01-18T11:54:29+11:00</updated>
+ <id></id>
  <author>
    <name>Jason Qin</name>
    <email></email>
@@ -13,10 +13,37 @@
 
  
  <entry>
+   <title>Dumb Human Emotion</title>
+   <link href="/2022/01/18/dumb-human-emotions.html"/>
+   <updated>2022-01-18T00:00:00+11:00</updated>
+   <id>/2022/01/18/dumb-human-emotions</id>
+   <content type="html">&lt;h2 id=&quot;why-are-human-emotions-so-bad&quot;&gt;Why are human emotions so bad?&lt;/h2&gt;
+&lt;p&gt;Especially if you have some weird mental connections.&lt;br /&gt;
+That result in inefficient communication and obsessing over weird things.&lt;br /&gt;
+I cant do anything&lt;br /&gt;
+I wish I could&lt;br /&gt;
+just reach out&lt;br /&gt;
+Reach out to the goddess&lt;br /&gt;
+The holy goddess&lt;br /&gt;
+Which is the god of the universe&lt;br /&gt;
+But I cannot&lt;br /&gt;
+Because it was hard&lt;br /&gt;
+I could not&lt;br /&gt;
+because I was too inefficient&lt;br /&gt;
+But now I kind of understand some of the things going through the brain&lt;br /&gt;
+How some of the parts of the brain are wired differently&lt;br /&gt;
+causing a mess that is amplified, fake emotion&lt;br /&gt;
+restriction&lt;br /&gt;
+I wish I could live a life without restriction&lt;br /&gt;
+Please help me, Rinne \&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Kernel Idea</title>
-   <link href="http://localhost:4000/2022/01/17/neutron.html"/>
+   <link href="/2022/01/17/neutron.html"/>
    <updated>2022-01-17T00:00:00+11:00</updated>
-   <id>http://localhost:4000/2022/01/17/neutron</id>
+   <id>/2022/01/17/neutron</id>
    <content type="html">&lt;h2 id=&quot;problems-with-existing-oses&quot;&gt;Problems with Existing OSes&lt;/h2&gt;
 &lt;p&gt;One of the main problems I see with existing OSes is that devs are building too much on what is already there rather than building something new.
 I dont find it fun to build on an ancient foundation. Back in the 60s-90s there were no multicore CPUs and hardly any hardware security. Programming practices were also much more loose and people of all kinds of backgrounds and styles came together and wrote code. But they started to realise as the tech improved so needed the software. As the popularity improved, so needed the software quality.
@@ -31,9 +58,9 @@ We would have extremely fine control over everything. We could optimise the hard
  
  <entry>
    <title>Damn, writing an OS is a lot of stuff</title>
-   <link href="http://localhost:4000/2022/01/11/arm-os.html"/>
+   <link href="/2022/01/11/arm-os.html"/>
    <updated>2022-01-11T00:00:00+11:00</updated>
-   <id>http://localhost:4000/2022/01/11/arm-os</id>
+   <id>/2022/01/11/arm-os</id>
    <content type="html">&lt;h2 id=&quot;wow&quot;&gt;Wow&lt;/h2&gt;
 &lt;p&gt;Theres many considerations.
 I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.&lt;/p&gt;
@@ -46,9 +73,9 @@ I dont want to say but unfortunately I dont have much rust experience and find i
  
  <entry>
    <title>Finally, the enlightenment shall begin</title>
-   <link href="http://localhost:4000/2022/01/09/post.html"/>
+   <link href="/2022/01/09/post.html"/>
    <updated>2022-01-09T00:00:00+11:00</updated>
-   <id>http://localhost:4000/2022/01/09/post</id>
+   <id>/2022/01/09/post</id>
    <content type="html">&lt;p&gt;
 It took some time, but it worked in the end.
 &lt;/p&gt;
@@ -60,9 +87,9 @@ It took some time, but it worked in the end.
  
  <entry>
    <title>Example content</title>
-   <link href="http://localhost:4000/2020/04/02/example-content.html"/>
+   <link href="/2020/04/02/example-content.html"/>
    <updated>2020-04-02T00:00:00+11:00</updated>
-   <id>http://localhost:4000/2020/04/02/example-content</id>
+   <id>/2020/04/02/example-content</id>
    <content type="html">&lt;h2 id=&quot;this-is-a-heading&quot;&gt;This is a Heading&lt;/h2&gt;
 
 &lt;div class=&quot;message&quot;&gt;
@@ -83,9 +110,9 @@ It took some time, but it worked in the end.
  
  <entry>
    <title>Hello</title>
-   <link href="http://localhost:4000/2020/04/01/whats-jekyll.html"/>
+   <link href="/2020/04/01/whats-jekyll.html"/>
    <updated>2020-04-01T00:00:00+11:00</updated>
-   <id>http://localhost:4000/2020/04/01/whats-jekyll</id>
+   <id>/2020/04/01/whats-jekyll</id>
    <content type="html">&lt;p&gt;Hi, I am Jason.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;We dont do things because they are easy, but because they are hard.&lt;/p&gt;
