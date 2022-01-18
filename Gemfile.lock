@@ -93,6 +93,7 @@ GEM
     webrick (1.4.2)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
