@@ -123,7 +123,9 @@ Perhaps also the stoning itself is meant to represent the humanity deterring fro
 # Whyman = Not a person, Not a thing, But a concept. Maybe the something to do with the nature of the Moon and Life?
 So here's a philosophical take on Whyman's identity.
 
-## My Hypothesis, Whyman is the indeed the endgame boss and a manifestation of Human desires in the form of the Moon
+Perhaps whyman is a manifestation of human desires that seeks to treat humans of their "illness" of being fragile and their desire to recieve quick and simple answers.
 
+# My Hypothesis: Whyman is the indeed the endgame boss and a manifestation of Human desires that involves the Moon, Humanity and Science
+That means Whyman can still be a physical thing, like a person or device. But I believe his physical identity is less meaningful than what he represents.
 
 
