@@ -8,7 +8,7 @@
 
   <title>
     
-      Damn, writing an OS is a lot of stuff &middot; Eletei
+      What to do? &middot; Eletei
     
   </title>
 
@@ -84,15 +84,15 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">Damn, writing an OS is a lot of stuff</h1>
-  <span class="post-date">11 Jan 2022</span>
-  <h2 id="wow">Wow</h2>
-<p>Theres many considerations.
-I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.</p>
+  <h1 class="post-title">What to do?</h1>
+  <span class="post-date">08 Feb 2022</span>
+  <h2 id="spectrovm">SpectroVM</h2>
+<p>So it seems like I should try to make a type 2 hypervisor. In that case you could write something like Yuzu where they simulate the ARM cpu completely in software. But pass the shaders and stuff into the host’s. It seems like they do that JIT or AOT right before you launch the game. Then you are mostly bottlenecked by the CPU emulation, but the GPU is mostly fine because you can transpile a lot of the vulkan code or something.</p>
 
-<p>But rn the stuff are mostly like, drivers, security and safety, extensibility &amp; maintainability -&gt; I think this could be intrinsic if we have a simple model, also kernel services API for implemnting programming language compilers.</p>
+<h2 id="rv-1-chisel-testing">RV-1 Chisel Testing</h2>
+<p>Something is with that chisel testing. Maybe its the <code class="language-plaintext highlighter-rouge">extends XTest</code> or something that makes it not able to test in a builder context. Idk but damn.</p>
 
-<p>Biggest thing though is, well i just feel embarrassed to say but. Yea running the actual arm OS on bare metal. In theory should be relatively straightforward compared to x86. But the virtual memory/paging seems to be quite different and non existent in some cases. Also multiboot isnt supported apparently in the rust bootloader crate. But https://github.com/jncronin/rpi-boot/blob/master/MULTIBOOT-ARM describes a way to do it from scratch, so I guess I can wrap around it in unsafe C/asm blocks.</p>
+<p>What about simulating it? We have to compile it to c++ and modify the header/sources to interface with extra stuff. If its possible to build a VM with that, then one could modify it to do something like interface with the host’s device and drivers, etc.</p>
 
 </div>
 
@@ -100,15 +100,6 @@ I dont want to say but unfortunately I dont have much rust experience and find i
 <div class="related">
   <h2>Related posts</h2>
   <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="http://localhost:4000/2022/02/08/spectro-update.html">
-            What to do?
-            <small>08 Feb 2022</small>
-          </a>
-        </h3>
-      </li>
     
       <li>
         <h3>
@@ -124,6 +115,15 @@ I dont want to say but unfortunately I dont have much rust experience and find i
           <a href="http://localhost:4000/2022/02/07/github-update.html">
             Something wrong with Github workflow?
             <small>07 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/06/update-mind.html">
+            My Mind
+            <small>06 Feb 2022</small>
           </a>
         </h3>
       </li>

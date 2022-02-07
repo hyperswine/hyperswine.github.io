@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Neutron Update &middot; Eletei
+    
+  </title>
+
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
+</head>
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="">
+          Eletei
+        </a>
+      </h1>
+      <p class="lead">Made by yours truly. </br></br>Fact: the masses will enter the the critical stage of the dejection process in around a 8.0 years. Until then, we shall meet again.</br></br></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/about.html">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/project.html">Project</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <span class="sidebar-nav-item">Currently v3.0.0</span>
+    </nav>
+
+    <p>&copy; 2022. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Neutron Update</h1>
+  <span class="post-date">25 Jan 2022</span>
+  <h2 id="basic-testing">Basic Testing</h2>
+<p>After looking and thinking about how I should verify that the kernel functionalities work, I thought having unit tests built into the modules themselves + testing one function at a time + compiling on x86 host was a good idea. At first I also specified a x86_64 pc windows triple, but it just needs to be different from the main build architectures riscv and arm. So thats what x86 is good at, testing.</p>
+
+<p>Esp since the final executable is small and fits nicely in instruction cache. The kernel code prob wont so one of the things I was thinking was to make the instruction cache bigger on a nice risc v cpu designed by no other than CSwine himself.</p>
+
+<p>The most important things are memory management. Esp the specific alloc and dealloc functions. They should work nicely. And so should the dynamic boxes like KVec and KBox which would be used all throughout the kernel. And provide the allocation for <code class="language-plaintext highlighter-rouge">std</code> if one were to implement it.</p>
+
+<p>The other big stuff are the drivers. Testing the drivers… Maybe a whole another thing. Drivers could be a separate crate altogether. In linux they make up over 50% of the codebase but they do try to support everything. Modern devices are quite complex and so the interface and control of them are naturally quite complex too. The drivers themselves dont need to compile per se? Or the fact that they are mostly platform agnostic given that we have a defined API that we’re going to use for the kernel - driver interface. So we can compile and test the drivers on any platform, like x86 even though Id prefer them to be optimised for risc-v or a certain platform (windows, mac, linux does this too)</p>
+
+<p>Well another thing is stuff like rpi drivers. I want to make it work on rpi4b. If the tests work then it shouldnt have any high level difficulties unless we’re doing more than just terminal stuff. Then int tests are key. Those rpi drivers would prob go under drivers/rpi/.. Stuff optimised for riscv, e.g. spectro hardware would go under drivers/spectro/..</p>
+
+<p>For some spectro hardware maybe we can make an all in one driver “file/source” code to control my spectrum soc idea? Or maybe not. If the components have similar interfaces as isolated components would then we can just use separate source driver files. And separate modules for each component if its quite big and complex like NIC and GPU.</p>
+
+<h2 id="complex-testing">Complex Testing</h2>
+<p>I dont really know but got a general idea. You test many functionalities together and test higher level abstractions instead of atomic functions.
+But the way I kind of set the project out makes it a bit awkward to maybe do. But it is the thing with Rust OS on multiple arch I guess.</p>
+
+</div>
+
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/08/spectro-update.html">
+            What to do?
+            <small>08 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/07/spectro-update.html">
+            Spectro Update
+            <small>07 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/07/github-update.html">
+            Something wrong with Github workflow?
+            <small>07 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+    </div>
+
+  </body>
+</html>

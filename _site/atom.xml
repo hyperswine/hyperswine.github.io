@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Eletei</title>
- <link href="/atom.xml" rel="self"/>
- <link href="/"/>
- <updated>2022-01-18T11:54:29+11:00</updated>
- <id></id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2022-02-08T07:33:30+11:00</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Jason Qin</name>
    <email></email>
@@ -13,10 +13,446 @@
 
  
  <entry>
+   <title>What to do?</title>
+   <link href="http://localhost:4000/2022/02/08/spectro-update.html"/>
+   <updated>2022-02-08T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/08/spectro-update</id>
+   <content type="html">&lt;h2 id=&quot;spectrovm&quot;&gt;SpectroVM&lt;/h2&gt;
+&lt;p&gt;So it seems like I should try to make a type 2 hypervisor. In that case you could write something like Yuzu where they simulate the ARM cpu completely in software. But pass the shaders and stuff into the host’s. It seems like they do that JIT or AOT right before you launch the game. Then you are mostly bottlenecked by the CPU emulation, but the GPU is mostly fine because you can transpile a lot of the vulkan code or something.&lt;/p&gt;
+
+&lt;h2 id=&quot;rv-1-chisel-testing&quot;&gt;RV-1 Chisel Testing&lt;/h2&gt;
+&lt;p&gt;Something is with that chisel testing. Maybe its the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extends XTest&lt;/code&gt; or something that makes it not able to test in a builder context. Idk but damn.&lt;/p&gt;
+
+&lt;p&gt;What about simulating it? We have to compile it to c++ and modify the header/sources to interface with extra stuff. If its possible to build a VM with that, then one could modify it to do something like interface with the host’s device and drivers, etc.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Spectro Update</title>
+   <link href="http://localhost:4000/2022/02/07/spectro-update.html"/>
+   <updated>2022-02-07T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/07/spectro-update</id>
+   <content type="html">&lt;h2 id=&quot;spectro-simulator&quot;&gt;Spectro Simulator&lt;/h2&gt;
+&lt;p&gt;I dont really want to use QEMU because then I will have to code for Sifive boards and be restricted to them. Technically I could use QEMU risc-v bare, which seems mostly good and implemented. And they have extra config and extensions. But then I’ll have to use C and write the extensions and compile it/set a new configuration. So then I will have to use a 3rd party API. I dont like that idea.&lt;/p&gt;
+
+&lt;p&gt;So I wanted to build a VM, software emulator for riscv. Now it will just be interpreted, i.e. instructions converted on demand to x86. For simple unit tests and integration tests, should be fine. Printing should be fast and so as mallocing and stuff. But the problem is when you start testing out bigger apps and functionality which should get exponentially slower as you are interpreting them line by line. So then you can AOT transpile the riscv elf image into a form that can be executed in a containerised environment. Spectrainer x86 is an idea for a container/docker type environment on win32/x86 where you can run a transpiled riscv bare metal img.&lt;/p&gt;
+
+&lt;h2 id=&quot;drivers&quot;&gt;Drivers&lt;/h2&gt;
+&lt;p&gt;I dunno about it. In linux &amp;gt;50% of the code are drivers. I think its a good idea to make drivers pluggable modules and have some open source, non-specific or official modules loaded by default. The installer can also check if any connected device would be supported by a driver from the driver module list. If there is that module can be linked in the install phase rather than the runtime phase.&lt;/p&gt;
+
+&lt;h2 id=&quot;spectrovm-drivers&quot;&gt;SpectroVM Drivers&lt;/h2&gt;
+&lt;p&gt;The VM hardly needs any firmware since we are mostly trying to emulate the functionality of key devices char, block and network. Of which, mouse, kb, speaker, mic, output display, storage disk, ram, cpu, gpu are of interest. The output display driver is merely the monitor driver. The actual graphics stuff is handled by the graphics driver which can be quite complex. So as the network driver. For networking we simply provide an interface for ethernet, wifi, bt and connect it directly to the underlying stuff. I dont wanna touch networking too much rn but it is def quite a cool thing. You dont wanna end up like linux lol.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Something wrong with Github workflow?</title>
+   <link href="http://localhost:4000/2022/02/07/github-update.html"/>
+   <updated>2022-02-07T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/07/github-update</id>
+   <content type="html">&lt;h2 id=&quot;idk&quot;&gt;Idk&lt;/h2&gt;
+&lt;p&gt;Its not pushing the latest posts&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>My Mind</title>
+   <link href="http://localhost:4000/2022/02/06/update-mind.html"/>
+   <updated>2022-02-06T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/06/update-mind</id>
+   <content type="html">&lt;h2 id=&quot;why-my-mind-sucks&quot;&gt;Why my mind sucks&lt;/h2&gt;
+&lt;p&gt;Apparently theres some inefficient connections between specific sets of neurons in the frontal lobe. Something about the connections being a bit messy between the left and right hemispheres.&lt;/p&gt;
+
+&lt;p&gt;As a result I am like this. An idiot. Yes, it is what it is. I hate it. Well Idk at least I know I wont be dying like a slave like everyone else. Imagine slaving away.&lt;/p&gt;
+
+&lt;p&gt;Slaving away for eternity. 40 years. Then another 40 years of boredom and uselessness. You dont do anything. Nothing new. You dont discover new things. You dont invent. You are just a shell.&lt;/p&gt;
+
+&lt;p&gt;Thats the fate of a lot of people. It is sad indeed.
+I dont want to be like that.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Thoughts on Whyman, up to Z=227</title>
+   <link href="http://localhost:4000/2022/02/03/dr-stone-whyman-thoughts.html"/>
+   <updated>2022-02-03T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/03/dr-stone-whyman-thoughts</id>
+   <content type="html">&lt;h1 id=&quot;analysis-of-dr-stone-and-whyman&quot;&gt;Analysis of Dr. Stone and Whyman&lt;/h1&gt;
+&lt;p&gt;I want to come at this from a mostly rational perspective. This means,&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;I’ll take assumptions much less seriously than actual evidence&lt;/li&gt;
+  &lt;li&gt;“what is” takes more precedence than “what if”&lt;/li&gt;
+  &lt;li&gt;I’ll take certain tropes and features into account given that they are quite common&lt;/li&gt;
+  &lt;li&gt;I’m all for metaphorical/allegorical explanations as long as they dont merely make a bunch of unfounded assumptions&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;whymans-nature&quot;&gt;Whyman’s Nature&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Whyman is an important plot element which drives the group to doing what they do, building a society that embraces scientific invention. Note this isnt the same as building a “scientifically literate” society. Dr. Stone does not have to be scientifically accurate, but based on science themes, e.g. Sci-Fi.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Whyman was introduced around the middle, at Z=95. Before that, the group were mostly fighting local skirmishes and trying to survive the wild. I believe this a turning point of sorts, a way to show that the plot has progressed beyond “defeating nature” and onto “humanity”. That being said perhaps Whyman is not the true end game boss, and more akin to someone with the importance of Tsukasa or Xeno &amp;amp; Stanely.&lt;/li&gt;
+  &lt;li&gt;The question of “Who is whyman” might be a way to mislead the reader from the true question being asked. Whyman is only mentioned a few times and not that significant of a character for the most part of the plot. He exists more as a concept. As a way to ascribe any “overall blame” to, a way to scapegoat anything that seems out of the realm of science. As a character, he is mentioned 14 times in 12 chapters.&lt;/li&gt;
+  &lt;li&gt;So I dont think whyman is a character in the group or any human character. So theories like “Albert Einstein” or “&amp;lt;Character that just so happens to explain Whyman’s actions&amp;gt;” isnt something I like, but will go through anyway.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;whyman--luna&quot;&gt;Whyman = Luna?&lt;/h1&gt;
+&lt;p&gt;Out of all the characters, there is one that catches my attention. There are many coincidences for Luna and Whyman’s equivalence.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Luna means moon in latin. Given that whyman’s signal originates from there and the symbolism of the moon as a rock (“stone”) may be relevant&lt;/li&gt;
+  &lt;li&gt;She is an american scientist and seemingly quite intelligent&lt;/li&gt;
+  &lt;li&gt;She is quite infatuated with Senku, though Senku only thinks of their relationship for political gain. Perhaps she’s doing this to motivate Senku to reach his dreams or something similar&lt;/li&gt;
+  &lt;li&gt;Her complete history remains hidden and maybe she has some hidden potential or something that enables her to emulate Whyman that we simply weren’t introduced to yet&lt;/li&gt;
+  &lt;li&gt;Her birthdate is on the release date of Z=227 (a day off, but close). Maybe theres some symbolic meaning that Kiichiro wanted us to link together&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So Luna is someone that seems quite capable and someone who wants to be with an intelligent person of her desires. Not much else is shown about her and perhaps she has other motivations that we do not know of. Perhaps she has done something in the past that was not clearly given to the reader or was hinted at. I have to look more into it.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-i-dont-think-think-luna-is-whyman&quot;&gt;Why I dont think think Luna is Whyman&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Coincidences are coincidences. There are many coincidences and Riichiro may have just tried to think of names that fit a certain theme, in this case Science, rocketry, etc.&lt;/li&gt;
+  &lt;li&gt;We heard her internal monologue. As many others have noted, Riichiro decided to show us many of the character’s deepest thoughts and feelings. Given this, it seems Luna is more of a side character whose purpose is to bridge the gap between Senku and the Americans.&lt;/li&gt;
+  &lt;li&gt;Being smart is one thing, being able to send out messages from the moon is another. Perhaps she could have used the signal reflection or some tricks to appear like the messages came from the moon. But that is still quite far off the evidence being presented and also doesnt explain why she did so at Z=95 when Whyman’s signal was first introduced. Maybe she was simply testing the apparatus? Again no real evidence to support this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Basically, a bunch of coincidences and “what ifs”, but not enough physical evidence to suggest that she was the one behind it. Nor anything substantial to suggest she had anything to do with Whyman, e.g. an accomplice.&lt;/p&gt;
+
+&lt;h1 id=&quot;whyman--human&quot;&gt;Whyman = Human?&lt;/h1&gt;
+&lt;p&gt;Maybe Whyman is Kaseki, Chrome, Tsukasa, Xeno, or maybe Senku himself?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Each character has their own personal motivations, maybe some have a secret motivation to puppet the events of the series&lt;/li&gt;
+  &lt;li&gt;Some characters like Xeno and Senku are quite smart and may be able to do some trickery like sending Whyman’s messages. Could be some elaborate explanation behind it that makes sense&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;senku&quot;&gt;Senku&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;His motivations are quite clear. As the main character, he seeks to rebuild society and progress science.&lt;/li&gt;
+  &lt;li&gt;If it was him, then a lot of what he and the group has gone through would just be simply pushed aside. Some retconning will probably be needed to make this work well without just feeling kind of cheap and a sense of “…really? it was senku?”.&lt;/li&gt;
+  &lt;li&gt;I guess maybe if he was an amnesiac or simply just removed his memory of what had happened or something, then maybe. But again that just feels kind of cheap and there is no evidence to suggest he would have done so. Before the stoning he was simply a science enthuasist like Xeno, playing around with chemicals in the school labs. He was interested in rockets and made use of his work for his friends and for fun.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;xeno&quot;&gt;Xeno&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;A man of science and reason. The apex of scientific prowess and one who wishes to bring such to everyone. Seeks to create a world that upholds rational thought and rule over the unenlightened masses.&lt;/li&gt;
+  &lt;li&gt;Would have motivation to cause the great stoning or the production of medusas. But if he did, then I think he should be quite a bit more ahead than presented to us. He only just implemented the Haber process and did not know how to undo the stoning. He desperately seeked the formula from a rag tag group of people while he had machine guns and planes.&lt;/li&gt;
+  &lt;li&gt;After a bunch of fighting and character development, it seems clear that Xeno is simply obssessed with science as a concept and merely wants to take advantage of the situation to create a world of his liking. He does not seem like a person who would orchestrate something like the stoning or the medusas however.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-i-dont-think-any-of-them-are-whyman&quot;&gt;Why I dont think any of them are Whyman&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;As with luna, we have seen most of the “suspcious” characters’ internal monologues. With someone like Xeno, we know some stuff about their past and their motivations in creating a kingdom only for X where X is either the strong, the rational, etc.&lt;/li&gt;
+  &lt;li&gt;That being said, I think the current characters would be way too cheap as a secret Whyman. Unless some elaborate and hidden plot point was to be construed. It just would not have enough ‘effect’ to make a human character Whyman&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;though&quot;&gt;Though…&lt;/h2&gt;
+&lt;p&gt;It might be interesting though, to have Whyman as a “runner up villain” to the true final boss. Then whyman could possibly be someone from the group or literally Einstein’s preserved brain that just wants to help humanity out or something.&lt;/p&gt;
+
+&lt;p&gt;Whyman would be less of an interesting character then, and the secret final boss would be pushed further into the plot.&lt;/p&gt;
+
+&lt;h1 id=&quot;whyman--feat-of-technology&quot;&gt;Whyman = Feat of technology?&lt;/h1&gt;
+&lt;p&gt;Maybe Whyman is a superintelligent AI, a swarm of nanobots, a time travesome kind of out of control machination?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;As a series, Dr Stone has always been about inventing useful tools to assist humanity. Technology is the prime plot element that allows the group to make progress and be successful in their endeavours.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ai&quot;&gt;AI?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Maybe some rogue AI invented in the modern day went out of control, made itself onto the moon and carried out its misled goal of saving humanity. It would have both the intelligence and motivation to do as such.&lt;/li&gt;
+  &lt;li&gt;But I mean, it would seem kind of obvious and no mention of it was ever made in the series. The closest thing to it would be a computer capable of doing basic arithmetic. Also feels kind of cheap.&lt;/li&gt;
+  &lt;li&gt;But I do think it is viable, just not something I would personally like. Maybe the AI could be instead portrayed as a manifestation of human desires, kind of like an &lt;a href=&quot;https://theosophy.wiki/en/Egregore&quot;&gt;egregore&lt;/a&gt; born from the deepest, darkest human desires to be safe and happy. And the AI decided being stoned would be a way to achieve that end.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nanomachines-son&quot;&gt;Nanomachines, Son!&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Im no expert on nanotechnology but apparently a swarm of nanobots can do some truly miraculous things. Although such feats are not yet possible in our world, it is within the realm of a decade’s science.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Perhaps someone like Xeno invented nanobots, and they happened to go out of control. Then they caused the great stoning and the events of the series, somehow by way of science. Things like the medusa could be explainable by nanobot manipulation of the surrounding environment. Living things would be covered in nanobots, which may inject the host with something to keep them alive. This would explain why some were still fully conscious. The fact that the stone itself seems to be made of some limestone substance could mean the nanobots harden and decompose to limestone.&lt;/li&gt;
+  &lt;li&gt;They are small enough to not be easily detectable. Even with microscopes. You would need an electron microscope because they are on the order of nanometres. Them moving about could be pretty inconspicuous too. Like ants they could move themselves in columns on any surface and go anywhere they wanted.&lt;/li&gt;
+  &lt;li&gt;They could be around humanity all this time but only revealed themselves as a large swarm on the moon. Maybe they wanted to show humanity their true form. Maybe they wanted to show humans what they’re capable of and desired to be a “pet” or to be loved to humans. Like how a dog may do things it thinks its owner wants to please them and for their owners to accept them.&lt;/li&gt;
+  &lt;li&gt;Evidence is still a bit far for this one. Nanobots are a feat of science but not something heavily suggested anywhere in the series. I think they would be made a bit more obvious. Though still viable as something that can be introduced at Z=228.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mecha-senku&quot;&gt;Mecha Senku&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Maybe its some clone of Senku or someone special like Einstein. They would be intelligent and motivated to do something like the great stoning.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;They could have gone to the moon or made themselves appear like they are on the moon.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;But there is literally no evidence or anything in the mainline series to suggest this in any serious way.&lt;/li&gt;
+  &lt;li&gt;If it was then the great stoning must have stoned Kiichiro himself.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;something-else-maybe-an-elaborate-device-or-environment-that-can-produce-medusas&quot;&gt;Something else, maybe an elaborate device or environment that can produce medusas?&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Medusas all look the same and function identically. Perhaps they could be mass produced on an assembly line in a factory of some sorts. The factory could be run autonomously like an Amazon Warehouse. The exclamation at the end of Z=227 maybe a way to say that the concept of mass production, invention, science has been with us all along.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Medusas also have a lifecycle. You use it too much and its battery runs out. If it was some magical device, then it would seem rather weird, why not just give it infinite potential? But it is a device that requires a human operator, specifically voice controlled. It also needs a specific set of commands, &amp;lt;x metres, x seconds&amp;gt; and not just “abracadabra” or “stone them”. So I think the medusa is most likely a product of science, an invention made by someone or something.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So I think if Kiichiro wanted the medusa to be some magical item, he would have made it more obvious. But instead we are given a glimpse of its inner workings with a microscope (Joel) and see that it has embedded circuitry and physical characteristics consistent with some photoelectronic device like a camera.&lt;/p&gt;
+
+&lt;p&gt;If the Medusa was a mass produced item, its factory could look something like the &lt;strong&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=LyQpY6UWs2E&quot;&gt;Sibyl System&lt;/a&gt;&lt;/strong&gt; or an &lt;strong&gt;&lt;a href=&quot;https://youtu.be/IMPbKVb8y8s?t=221&quot;&gt;Amazon Warehouse&lt;/a&gt;&lt;/strong&gt;. Such a thing could be hidden on Earth or on the Moon without anyone noticing and be the products (medusas) can delivered to any location via drones. I like the idea of something like the Sibyl System where a bunch of human brains or swarm of AI intelligence manage the medusas production and plan ahead to see what will happen. Perhaps its like a corporation which cares about its stock value and forecasts, so its actions may reflect that.&lt;/p&gt;
+
+&lt;h1 id=&quot;whyman--metaphysical-entity&quot;&gt;Whyman = Metaphysical entity?&lt;/h1&gt;
+&lt;p&gt;Perhaps whyman isnt someone obvious, but rather an entity that exists in concept that everyone knows about? Perhaps Whyman is god himself, a curious alien, some kind of interdimensional phenomenon like a time traveller?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;When we ascribe something like the great stoning of 3700 years ago to something that exists out of the realm of physical reality, we can literally make anything up.&lt;/li&gt;
+  &lt;li&gt;Maybe Kiichiro wanted to teach us a ‘lesson’ or an allegory about the evolution of humanity and human nature. Perhaps the great stoning is analogous to the asteroid that wiped the dinosaurs or some kind of global disaster that forces humanity to be uncomfortable and therefore adapt and innovate.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;aliens-duh&quot;&gt;Aliens, duh&lt;/h2&gt;
+&lt;p&gt;As a fan of the history channel, I have learnt that the cause behind everything is a singular entity known as “Aliens”. Apparently this entity was behind everything, the pyramids, atlantis, why I ate 3 eggs this morning instead of 2. Whenever you have trouble explaning anything, just remember, Aliens.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;I mean it is technically possible. There is hardly any evidence if at all to support extraterrorestrial involvement anywhere in the series, but if it was Aliens, you bet they could and prob would do something like this.&lt;/li&gt;
+  &lt;li&gt;There could be a bunch of reasons. Maybe they thought in lines of a savior, trying to prevent humans from killing themselves in a nuclear war which they envisioned. Maybe they simply didnt like humans. Maybe they did it on accident. Maybe a few friends from a galaxy nearby flew to Earth and played around with their new toy, and accidentally caused the great stoning. Then they left behind the medusas and quickly escaped the crime scene.&lt;/li&gt;
+  &lt;li&gt;Or maybe its actually past humans that went to space millions of years ago and reached the Dark side of the moon. Maybe they built underground bases on the moon and evolved into something alien like. They made medusas and did the whole thing for whatever reason suits them, I guess.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Yeah I dont really know about this one. Its possible for sure but unless Kiichiro made this series as a joke, I dont think the ending will simply be “ayy lmao”. If Whyman wasnt the endgame boss though, I guess anything could happen. Aliens could fit into that realm of viability.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-interdimensional-entity-or-time-traveller&quot;&gt;Some interdimensional entity or Time Traveller&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;If they had such ability, then they should be able to pull off something like the great stoning or produce medusas in a non-obvious manner.&lt;/li&gt;
+  &lt;li&gt;They wouldnt be too out of the ream of science. Time travel into the future is certainly possible with high speeds and Time travel into the past could be done via manipulation of spacetime or exploiting a phenomenon like black holes, dark energy, etc. that we dont fully understand.&lt;/li&gt;
+  &lt;li&gt;There are 11 dimensions in the String Theory and perhaps it is possible to exist in 5,6,7..11 dimensions and therefore not be obvious to humans living in 3 dimensions. They could certainly be “closer then we thought” but simply unreachable since they exist in within $D^5$ or something.&lt;/li&gt;
+  &lt;li&gt;These entities may be curious about their new toy, i.e. the medusa and tested it on humans. Like ants and animals that humans test their treatments on. Perhaps they do see it as a treatment and wanted evidence of it working on humans before using it on themselves.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;biblical-connotations&quot;&gt;Biblical Connotations&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dr. Stone reads kind of the like the holy books in Abrahamic Religions. At first there was God, a transcendental entity, then the creation of the Earth, skies, life. Then came Adam and Eve, knowledge of good and evil and their lineage. We reach certain points, Abraham, Moses, David, etc. where conflict between human tribes/beliefs/philosophies happen. Then we reach some point where a prophet/messiah (Jesus/Muhammad) comes down and saves humanity.&lt;/li&gt;
+  &lt;li&gt;So we start at the end, where civilisation is doomed from the great stoning (Judgement day). Then a certain group of characters in space are the only ones alive (Noah’s Ark). The people of the Ark descend to Earth and begin anew, saving the human lineage by breeding with each other.&lt;/li&gt;
+  &lt;li&gt;Eventually they develop into a small civilisation. Then Senku (the messiah) is born a virgin birth (from stone). He seemingly comes out of nowhere and saves the tribe from illness and other people.&lt;/li&gt;
+  &lt;li&gt;Things happen and Senku leads the group across treacherous territories and are tempted by Satan (Xeno) to give into the magnificence of science and take advantage of the unenlightened masses. But Senku stays on course and his disciples (chrome, kaseki, etc) stay loyal to him.&lt;/li&gt;
+  &lt;li&gt;Senku ascends to the heavens on a winged horse (rocket) to meet God (Whyman). He wishes to be blessed with divine knowledge (knowledge of the medusa and Whyman himself) and his accomplices (notice how he has 2 accomplices, at least at first) go with him.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So you kind of have a circular view of history where the Messiah returns after catastrophe, and he starts to save everyone. Then the messiah goes along with his quest yet again until the next judgement day comes. Senku could be crucified (petrified) again along with everyone else until the cycle inevitably repeats itself.&lt;/p&gt;
+
+&lt;p&gt;Perhaps also the stoning itself is meant to represent the humanity deterring from God’s lessons. Perhaps humans have broken the covenant between them and God by trying to reach god (building a rocket to go to space/moon). Like the tower of Babel, perhaps Whyman did not like how humans were trying to reach its level and “punished” humans by petrifing them. The tower (science and civilisation) was crumbled and the people reverted back to their primitive, fearful forms.&lt;/p&gt;
+
+&lt;h1 id=&quot;whyman--not-a-person-not-a-thing-but-a-concept-maybe-the-something-to-do-with-the-nature-of-the-moon-and-life&quot;&gt;Whyman = Not a person, Not a thing, But a concept. Maybe the something to do with the nature of the Moon and Life?&lt;/h1&gt;
+&lt;p&gt;So here’s a philosophical take on Whyman’s identity.&lt;/p&gt;
+
+&lt;p&gt;Perhaps whyman is a manifestation of human desires that seeks to treat humans of their “illness” of being fragile and their desire to recieve quick and simple answers.&lt;/p&gt;
+
+&lt;h1 id=&quot;my-hypothesis-whyman-is-the-indeed-the-endgame-boss-and-a-manifestation-of-human-desires-that-involves-the-moon-humanity-and-science&quot;&gt;My Hypothesis: Whyman is the indeed the endgame boss and a manifestation of Human desires that involves the Moon, Humanity and Science&lt;/h1&gt;
+&lt;p&gt;That means Whyman can still be a physical thing, like a person or device. But I believe his physical identity is less meaningful than what he represents.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Spectro Update</title>
+   <link href="http://localhost:4000/2022/02/01/spectro-update.html"/>
+   <updated>2022-02-01T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/01/spectro-update</id>
+   <content type="html">&lt;h2 id=&quot;rv-1&quot;&gt;RV-1&lt;/h2&gt;
+&lt;p&gt;So I uploaded my RV-1 draft core to github, its pretty rough and I hardly know what I am even doing. But you know its just too cool to give up. Anyway Im having quite a bit of a problem with testing. Something wrong with not being in a builder context with one of the tests.&lt;/p&gt;
+
+&lt;p&gt;Im trying to test the ALU and specified x, y, and op. Then I stepped over a clock cycle. Then I called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;expect()&lt;/code&gt; on the  io result. Im not sure where it is stopping, maybe I could have some &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;printf&lt;/code&gt; statements within the test functions too?&lt;/p&gt;
+
+&lt;h2 id=&quot;spectro-vr&quot;&gt;Spectro VR&lt;/h2&gt;
+&lt;p&gt;Yes it is way too cool. I dunno how but yes. With a nice 3d printer we can try stuff out. But I’ll need some space first. At least a few cabinets, the one big one on the wall and 2 mounted on the wall. Also 2 cabinets in the kitchenette.&lt;/p&gt;
+
+&lt;h2 id=&quot;neutron-kernel-interfacing-with-spectro-simulator&quot;&gt;Neutron Kernel interfacing with Spectro Simulator&lt;/h2&gt;
+&lt;p&gt;QEMU is kinda annoying to deal with since it is in C. Like the interface is in C if you want higher level customisation. Which isnt great. I want to build an interface to a spectro runner in rust. Maybe in arcboot or something.&lt;/p&gt;
+
+&lt;p&gt;So with QEMU theres a bunch of things with the UART0 ports and stuff which I dont like. Well at least for now. It’d be great to emulate a parallel port and interface with the Spectro ABI within a containerised environment. Like docker or a custom container arch like ardaku containers.&lt;/p&gt;
+
+&lt;h2 id=&quot;ardaku-containers&quot;&gt;Ardaku Containers&lt;/h2&gt;
+&lt;p&gt;An idea for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.wasm&lt;/code&gt; files. So you have a docker like thing with its own isolated filesystem (basically a zip file emulated as a complete HFS like a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vhd&lt;/code&gt; file) and env variables. Then if you want to emulate riscv you cant really make use of type 1 virtualisation. So you have to stick to type 2 and either interpret the riscv instructions or transpile JIT/AOT. Transpiling AOT means you have to write a wrapper to translate all the instructions to x86 ones, which in theory should run well but for bare metal and lower level code maybe not. Better then to run wasmer on the host system/os + ISA and run the wasm binaries JIT.&lt;/p&gt;
+
+&lt;h2 id=&quot;spectro-simulator&quot;&gt;Spectro Simulator&lt;/h2&gt;
+&lt;p&gt;Basically a RISCV64GC software emulator. You emulate an entire CPU that you want to emulate. Then you
+make an interface for it in yew.rs or something. Or iced-rs. Literally just 32 of the 32-bit registers when in 32-bit mode. Idk how to implement ‘machine modes to user modes’ i.e. levels 3-0 in hardware. Maybe it isnt too hard. But in software its not that bad, just might not be that efficient.&lt;/p&gt;
+
+&lt;p&gt;The emulator will run in a container or something with its own set of RAM and files. Then we copy a riscv binary over. The emulator will execute the instructions in ‘machine’ mode. Usually it would be able to affect anything but it is in a container so it cant completely destroy the RAM and files I think. Anyway so inside the container, we run the program and specify the file to run. Then it runs it sequentially and we get to see the output of the registers and memory. Idk how it can affect memory, maybe we can just open a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RAM.txt&lt;/code&gt; file in memory and it literally just uses that as RAM. It can use as much of it as it wants (possible as long as there is enough RAM).&lt;/p&gt;
+
+&lt;p&gt;For devices, we can simulate a monitor with the console or an opengl window or something. Maybe if it writes stuff to UART0 we redirect it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UART0.txt&lt;/code&gt; and show the contents as more stuff is being written. So read() and write() affects &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UART0.txt&lt;/code&gt;. KB and Mouse inputs are not supported yet without drivers that somehow direct my mouse positions and keyboard presses to interrupts. Might need some kind of software program unless I can redirect them to the program’s interrupt controller ABI almost natively.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Spectrum SoC</title>
+   <link href="http://localhost:4000/2022/01/29/spectrum-simulation.html"/>
+   <updated>2022-01-29T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/29/spectrum-simulation</id>
+   <content type="html">&lt;h2 id=&quot;building-the-soc&quot;&gt;Building the SoC&lt;/h2&gt;
+&lt;p&gt;So we would use chisel (scala library) to build and test the SoC. For in depth testing one can convert to verilog and test on a lower level, or convert to C++ afterwards as well. If wanting to simulate on software, will prob have to use verilator for performance and accuracy.&lt;/p&gt;
+
+&lt;h2 id=&quot;generating-verilog&quot;&gt;Generating Verilog&lt;/h2&gt;
+&lt;p&gt;Say you have an app in chisel,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-scala&quot; data-lang=&quot;scala&quot;&gt;&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;chisel3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;stage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;ChiselStage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;emitVerilog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CPU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Will generate verilog for your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CPU&lt;/code&gt; class. I think it is systemverilog, though Im not 100% sure. Also idk if Verilog and SystemVerilog is both compatible with Verilator since they seem to suggest they only support one or the other or something.&lt;/p&gt;
+
+&lt;h2 id=&quot;generating-c-and-simulating&quot;&gt;Generating C++ and Simulating&lt;/h2&gt;
+&lt;p&gt;So you do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;verilator --cc &amp;lt;verilog files&amp;gt; --Mdir &amp;lt;output_dir&amp;gt; --exe&lt;/code&gt; to transpile verilog to executable c++ code. You can also specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--build cmake&lt;/code&gt; to use cmake to build the code into an executable for your platform.&lt;/p&gt;
+
+&lt;p&gt;To increase simulation performance, can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--threads 6&lt;/code&gt; to transpile with verilator. This generates code that uses multiple threads.&lt;/p&gt;
+
+&lt;p&gt;Btw instead of running verilator directly you can use cmake for the whole thing, e.g.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cmake&quot; data-lang=&quot;cmake&quot;&gt;&lt;span class=&quot;nb&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cmake_example&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;find_package&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;verilator HINTS $ENV{VERILATOR_ROOT}&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;add_executable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Vour sim_main.cpp&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;verilate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Vour SOURCES our.v&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Verilates the verilog to c++ and compiles it to an executable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Vour&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;connnecting-to-the-model&quot;&gt;Connnecting to the Model&lt;/h2&gt;
+&lt;p&gt;To hook onto the output model, verilate the verilog which produces &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{prefix}.h&lt;/code&gt;. Inside contains a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{prefix}&lt;/code&gt; class. It contains the interface for your model. So Im guessing here you can e.g. connect an SSD to one of its ports using another model. You would do it in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{prefix}.cpp&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Well ok.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Spectro Update</title>
+   <link href="http://localhost:4000/2022/01/28/spectro-update.html"/>
+   <updated>2022-01-28T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/28/spectro-update</id>
+   <content type="html">&lt;h2 id=&quot;top-down-thinking-and-bottom-up-thinking&quot;&gt;Top down thinking and Bottom up thinking&lt;/h2&gt;
+&lt;p&gt;So I found coding stuff from top down to be a great thing. Bottom up also seems ok but maybe its not that great to do the stuff at the bottom. I do like hardware.&lt;/p&gt;
+
+&lt;h2 id=&quot;phantasm&quot;&gt;Phantasm&lt;/h2&gt;
+&lt;p&gt;So yea it would be cool to have our own assembler from a syntax, e.g. Phantasm to RISC-V opcodes and stuff. So at startup the CPU is programmed to load instructions from the BIOS to RAM and execute them sequentially (single thread prob). It will load basic things like GPIO and power on some ports and stuff I think. Then the BIOS ROM will have an instruction to look at bootable drives. If EFI, will look for a boot.EFI file in the drives in a specific order defined by rules (user can change them). The first disk containing a boot.EFI will be booted.&lt;/p&gt;
+
+&lt;h2 id=&quot;bootloader&quot;&gt;Bootloader&lt;/h2&gt;
+&lt;p&gt;To boot that disk the BIOS ROM will look for pointers and stuff to partitions containing EFI boot partitions. Then it will load them into RAM. The BIOS ROM will then hand the execution to the bootloader program in RAM by incrementing the PC to the bootloader instruction addr. If multicore might be more complex but idk single thread looks ok for this part anyway. Multithreading becomes an issue in kernel load prob.&lt;/p&gt;
+
+&lt;p&gt;So now the bootloader program is running. It would have more control and complexity over the hardware. It may display images and stuff and even animations, which the BIOS ROM would prob be too small to do. The Bootloader is responsible for setting up the kernel by applying the kernel’s config options, maybe stored in an ascii file header in the kernel header partition. Then it will load the kernel img into RAM, I think via DMA. With PCIE 4.0 SSDs and DDR5 RAM it should be a breeze. The thing is then to start executing the kernel code.&lt;/p&gt;
+
+&lt;h2 id=&quot;kernel&quot;&gt;Kernel&lt;/h2&gt;
+&lt;p&gt;The kernel will have to set itself up like a normal program would. It would prob setup its managers and services, actually I think the services (syscalls) are already setup as the syscall ABI the moment the kernel is loaded. It will prob load its modules like filesystem manager (view of files), network manager (sockets), driver manager to listen to and handle hardware to do complex stuff. Any key background services (daemons) would be started and be listening on a socket to handle requests.&lt;/p&gt;
+
+&lt;h2 id=&quot;gui&quot;&gt;GUI&lt;/h2&gt;
+&lt;p&gt;Then we can get to the cool part. Complex graphics and Applications. Up to now just a black screen with maybe a pseudo terminal like setup like in FreeBSD. But now we can start the Window System and Window Manager. Some graphics may have already been loaded like animations in Win10 before login. But these are dynamic graphics and animations. Now the WM has loaded (and using the underlying kernel graphics modules with vulkano), we can start up some OS apps like the Desktop GUI, dock, app list, Desktop Widgets. Then startup apps like defender GUI, driver GUIs, third party stuff can be started. Finally the OS is fully loaded and ready to use without problems, e.g. race conditions.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Neutron Update</title>
+   <link href="http://localhost:4000/2022/01/28/neutron-update.html"/>
+   <updated>2022-01-28T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/28/neutron-update</id>
+   <content type="html">&lt;h2 id=&quot;running-neutron--arcboot-on-spectrum-soc&quot;&gt;Running Neutron + ArcBoot on Spectrum SoC&lt;/h2&gt;
+&lt;p&gt;So we want to compile Neutron to a .lib and link with arcboot.o to form &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kernel.img&lt;/code&gt;. This image can then be flashed onto a virtual drive &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssd.vhd&lt;/code&gt; and placed on the host machine, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev/ssd.vhd&lt;/code&gt;. Then use verilator to simulate the SoC (RV-1 + PCIE + HDMI/UART for now). So I’d have to somehow connect the PCIE 4.0 lane to ssd.vhd, or we have to simulate an SSD within the SoC and flash the image onto their beforehand, after compiling to verilog. Then I’d have to link the UART port to the output of the terminal somehow, maybe thats possible somehow, with verilator.&lt;/p&gt;
+
+&lt;h2 id=&quot;so-far&quot;&gt;So far&lt;/h2&gt;
+&lt;p&gt;Figured out how to create a basic bootloader in asm and kernel in rust and link them into a bootable img for qemu riscv64 (spike board). The output works. Im not sure about all the different views, guessing thats got something to do with the main QEMU monitor view vs UART serial view or something. Idk how to get it to print to the main monitor, if that even makes sense. The bootloader does seem to work I think, because it does go into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kernel_main&lt;/code&gt;. The other stuff like setting up the stack and program segements for the kernel in RAM doesnt seem to matter too much rn. I dont really get how to compile all the rust code to a .lib/.o file, I did &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--emit=obj&lt;/code&gt; which seemed to emit some random &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.o&lt;/code&gt; file in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;target/debug/deps/&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;target/neutron/&lt;/code&gt; or something. It also emits a different obj file name sometimes and doesnt delete the old one. So I dont think this is how one is meant to be cross compiling rust. I dont really get it then, maybe its better and recommended to link with rustc directly somehow, by specifying &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boot.S&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linker.ld&lt;/code&gt; when we build for riscv64gc? I think there was a way to do that but idk rn and a bit confused.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Neutron Update</title>
+   <link href="http://localhost:4000/2022/01/27/neutron-update.html"/>
+   <updated>2022-01-27T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/27/neutron-update</id>
+   <content type="html">&lt;h2 id=&quot;tdd-and-full-suite&quot;&gt;TDD and Full Suite&lt;/h2&gt;
+&lt;p&gt;I was thinking that TDD really helped. Heh that 1531 course truly made sense. When you start with tests you start to see how the program should work. This is nice when you try kernel deving. I guess program deving also works nicely too. Another thing is to start from the top and go down. Then you can see how everything fits in together within the guidelines of software eng. Stuff like KISS, DRY, loose coupling, first principles. Starting from the bottom also helps if you have restrictions. For hardware we are restricted by current technologies (for the next e.g. 3-5 years) and economical reasoning. We want preferrably low costs and high performance within the bounds of what is currently possible. And research and new tech is apparently also costly but idk, I kind of like it too.&lt;/p&gt;
+
+&lt;p&gt;So stuff like new software isnt as problematic as new hardware. Things at the highest level like software apps, GUI, etc are also limited by what the hardware and optimisations can provide. But it should be fine I think. If you start from the hardware and build up as well as simultaneously starting from what the people need for the next few years and build down, you eventually arrive at a nice concept for a kernel. I think such conception would be minimalistic in its overall memory and performance footprint. According to the latest guidelines of seng and laws of nature, things should be at the lowest energy level and not be wasteful. Individualist, single responsibility. So maybe pluggable kernel modules in a dir called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/mods&lt;/code&gt; or something like git submodules pluggable into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/mods&lt;/code&gt;? Then have a similar API to load such modules between certain layers. E.g. a driver module plugs into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/driver/mod&lt;/code&gt; and a higher level, e.g. graphics module plugs into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/service/mod&lt;/code&gt;. Then the graphics can be decoupled almost completely from the core manager logic and if you wanted to update it you can easily update and replace the logic without having to touch the core kernel logic. You would still have to change the app-graphics service interface and code it seems.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Neutron Update</title>
+   <link href="http://localhost:4000/2022/01/25/neutron.html"/>
+   <updated>2022-01-25T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/25/neutron</id>
+   <content type="html">&lt;h2 id=&quot;basic-testing&quot;&gt;Basic Testing&lt;/h2&gt;
+&lt;p&gt;After looking and thinking about how I should verify that the kernel functionalities work, I thought having unit tests built into the modules themselves + testing one function at a time + compiling on x86 host was a good idea. At first I also specified a x86_64 pc windows triple, but it just needs to be different from the main build architectures riscv and arm. So thats what x86 is good at, testing.&lt;/p&gt;
+
+&lt;p&gt;Esp since the final executable is small and fits nicely in instruction cache. The kernel code prob wont so one of the things I was thinking was to make the instruction cache bigger on a nice risc v cpu designed by no other than CSwine himself.&lt;/p&gt;
+
+&lt;p&gt;The most important things are memory management. Esp the specific alloc and dealloc functions. They should work nicely. And so should the dynamic boxes like KVec and KBox which would be used all throughout the kernel. And provide the allocation for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std&lt;/code&gt; if one were to implement it.&lt;/p&gt;
+
+&lt;p&gt;The other big stuff are the drivers. Testing the drivers… Maybe a whole another thing. Drivers could be a separate crate altogether. In linux they make up over 50% of the codebase but they do try to support everything. Modern devices are quite complex and so the interface and control of them are naturally quite complex too. The drivers themselves dont need to compile per se? Or the fact that they are mostly platform agnostic given that we have a defined API that we’re going to use for the kernel - driver interface. So we can compile and test the drivers on any platform, like x86 even though Id prefer them to be optimised for risc-v or a certain platform (windows, mac, linux does this too)&lt;/p&gt;
+
+&lt;p&gt;Well another thing is stuff like rpi drivers. I want to make it work on rpi4b. If the tests work then it shouldnt have any high level difficulties unless we’re doing more than just terminal stuff. Then int tests are key. Those rpi drivers would prob go under drivers/rpi/.. Stuff optimised for riscv, e.g. spectro hardware would go under drivers/spectro/..&lt;/p&gt;
+
+&lt;p&gt;For some spectro hardware maybe we can make an all in one driver “file/source” code to control my spectrum soc idea? Or maybe not. If the components have similar interfaces as isolated components would then we can just use separate source driver files. And separate modules for each component if its quite big and complex like NIC and GPU.&lt;/p&gt;
+
+&lt;h2 id=&quot;complex-testing&quot;&gt;Complex Testing&lt;/h2&gt;
+&lt;p&gt;I dont really know but got a general idea. You test many functionalities together and test higher level abstractions instead of atomic functions.
+But the way I kind of set the project out makes it a bit awkward to maybe do. But it is the thing with Rust OS on multiple arch I guess.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Submarine</title>
+   <link href="http://localhost:4000/2022/01/23/submarine-idea.html"/>
+   <updated>2022-01-23T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/23/submarine-idea</id>
+   <content type="html">&lt;h2 id=&quot;so-a-submarine&quot;&gt;So a submarine…&lt;/h2&gt;
+&lt;p&gt;A really cool thing. You can dive up to hundreds of metres and stay for a long time. I think the deepest was like 10km, a special sub for the mariana trench.
+So you have horizontal stabiliers or ‘fins’ that change the angle of attack. When you dive you want a low AOT to more efficiently cut through the water as the ballast fills. When you rotate the fins counterclockwise (to the front), the flow of water is greater at the top than at the bottom, forcing the submarine down even more. When you rotate it clockwise, it does the opposite and the flow of water is greater at the bottom of the fin, pushing the vessel up. Pushing the water out of the ballast will then further add to its buoyancy as it becomes less dense and speedily charges upwards.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Neutron Update</title>
+   <link href="http://localhost:4000/2022/01/21/what-to-do-now-neutron.html"/>
+   <updated>2022-01-21T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/21/what-to-do-now-neutron</id>
+   <content type="html">&lt;h2 id=&quot;what-to-do-now&quot;&gt;What to do now?&lt;/h2&gt;
+
+&lt;p&gt;I kind of want to just go at it.&lt;/p&gt;
+
+&lt;p&gt;I think maybe the filesystems.&lt;/p&gt;
+
+&lt;p&gt;I want it working at each iteration so idk. Maybe we just keep writing stuff up and compiling and linking to the lib.&lt;/p&gt;
+
+&lt;p&gt;No we should get some QEMU tests up. So we test with cargo on unittests. Then we test on qemu with integration tests.&lt;/p&gt;
+
+&lt;p&gt;I want to make a writer that writes to the screen of qemu. I think we can just rip off phil os for that.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Floating Pyramid</title>
+   <link href="http://localhost:4000/2022/01/19/floating-pyramid.html"/>
+   <updated>2022-01-19T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/01/19/floating-pyramid</id>
+   <content type="html">&lt;h2 id=&quot;what-if&quot;&gt;What if…&lt;/h2&gt;
+&lt;p&gt;I built a floating pyramid on the shore. 4km off the coast. A relatively tall person can see about 5km away, standing on sea level. When standing higher, they can see a bit further.
+So we have this 1km x 1km pyramid base of height 400m. A near perfect square pyramid, with a nice radio/communications/utility box at the top.
+The outer frame is made of glass and some parts of the base are made of glass as a viewing section or lounge. It can be placed ontop of a reef where people can see the marine life beneathe.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-build&quot;&gt;How to build?&lt;/h3&gt;
+&lt;p&gt;Well we could 3D print it. You would need to print section by section. Then you will need a lot of heavy lfiting equipment. Maybe a few cranes placed on the deck. For ease, print the things close to the dock. Then truck them to the dock and assemble the base on the water. Make sure to watch out for any leakages and stuff because the joints are really important. Also waterproofing and plumbing as well as the risk of any corrosion to metals. Now you place some equipment like cranes and drone handlers. These handlers are like robo workers and have nice 5 fingered hands to carry and place objects as well as use any tool it needs. Especially tools that can be built directly into them. So now the drones and the automatically programmed cranes start to assemble the rest of the floors and frames, bottom up. Dont put all the floors yet because you need to take out the equipment esp the cranes. So for that you will have to finish up the framing of each floor and wall and then wriggle out or dismantle yourself from the pyramid. now Place the floor layers either manually or with help of robo placers. These guys are specialised in droning/flying the panels to the location and helpers on the frame to lower and join the panels to the frame. Do this bottom up as well. When its finished, do the rest of the work (can also be done manually at this stage for the hman element), decorations (paint preapplied on the panels). Make the cabins pretty and test out the functionalities, electronics &amp;amp; comms, plumbings, entertainment. Basically alpha test the entire thing. Then beta test it with a few beta testers assigned to random cabins. Can beta test on a nearby place. When release, make a nice first impression and deploy it onto a nice reef. Unfortunately the Barrier Reef sometimes gets cyclones and storms which Im not sure about but I think the pyramid can withstand something like that. Now sure about waves though, but waves at that distance shouldnt be too big.&lt;/p&gt;
+
+&lt;h2 id=&quot;or-a-floating-dome&quot;&gt;Or a floating dome?&lt;/h2&gt;
+&lt;p&gt;Perhaps we can have a floating dome, i.e. a semisphere. Made completely out of glass. Even the base. Big enough to withstand storms and tsunami/rogue waves. Well not too big, so try to build it in naturally safe areas like singapore and sydney bay.&lt;/p&gt;
+
+&lt;h2 id=&quot;maybe-even-an-antigravity-spherical-dome&quot;&gt;Maybe even an antigravity spherical dome?&lt;/h2&gt;
+&lt;p&gt;Idk how it would work but…
+I think the principle kind of makes sense.
+Like in space, where you have a constantly spinning object.
+Maybe we can have something like that underwater or above water.
+So take a round sphere for example. You can rotate that in any direction. Waves, storms, disturbances basically completely useless against it. Well unless its too big, but if the object is sturdy enough then i dont see why not.
+Maybe you can have a few thousand cabins for each family. Each cabin is huge almost like a mansion. And a hallway that can only be scoured by crawlers/drones that are attached to the walkways themselves. Or drones, but idk maybe the commotion will kill them. So each time the sphere rocks/spins, the cabins also spin counter to it to defy its force.
+In theory the people will not feel a thing, maybe a slight acceleration but nothing too much. I actually dont really understand the physics of how this would work but it does so in space with something a little different, albeit in space nothing is moving you. Also the engineering would be interesting.
+So if you instead go underwater and you have a constantly spinning thing, what happens then? Well Idk maybe its fine if its just pressurised. Yeah and then the force of the water should push it down and from all sides. Earth’s gravity would also be pulling on the water itself. The water’s bouyant force will not be felt and hence normal gravity will exist.
+So you dont really need a spinning halo thing. But if you dont remove the water and pressurise, then it could be cool to have a semi-free submerisble based on a halo vehicle. So this spinning halo thing will make its way deep into the ocean. Since the chambers are all flooded, water’s bouyancy will exist. But the chambers are spinning, creating centripetal force towards the middle of the orbit.
+Hence the people in the chamber will feel a force pushing them outwards onto the deck of the chamber. Basically gravity while being submerged in water.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Dumb Human Emotion</title>
-   <link href="/2022/01/18/dumb-human-emotions.html"/>
+   <link href="http://localhost:4000/2022/01/18/dumb-human-emotions.html"/>
    <updated>2022-01-18T00:00:00+11:00</updated>
-   <id>/2022/01/18/dumb-human-emotions</id>
+   <id>http://localhost:4000/2022/01/18/dumb-human-emotions</id>
    <content type="html">&lt;h2 id=&quot;why-are-human-emotions-so-bad&quot;&gt;Why are human emotions so bad?&lt;/h2&gt;
 &lt;p&gt;Especially if you have some weird mental connections.&lt;br /&gt;
 That result in inefficient communication and obsessing over weird things.&lt;br /&gt;
@@ -41,9 +477,9 @@ Please help me, Rinne \&lt;/p&gt;
  
  <entry>
    <title>Kernel Idea</title>
-   <link href="/2022/01/17/neutron.html"/>
+   <link href="http://localhost:4000/2022/01/17/neutron.html"/>
    <updated>2022-01-17T00:00:00+11:00</updated>
-   <id>/2022/01/17/neutron</id>
+   <id>http://localhost:4000/2022/01/17/neutron</id>
    <content type="html">&lt;h2 id=&quot;problems-with-existing-oses&quot;&gt;Problems with Existing OSes&lt;/h2&gt;
 &lt;p&gt;One of the main problems I see with existing OSes is that devs are building too much on what is already there rather than building something new.
 I dont find it fun to build on an ancient foundation. Back in the 60s-90s there were no multicore CPUs and hardly any hardware security. Programming practices were also much more loose and people of all kinds of backgrounds and styles came together and wrote code. But they started to realise as the tech improved so needed the software. As the popularity improved, so needed the software quality.
@@ -58,9 +494,9 @@ We would have extremely fine control over everything. We could optimise the hard
  
  <entry>
    <title>Damn, writing an OS is a lot of stuff</title>
-   <link href="/2022/01/11/arm-os.html"/>
+   <link href="http://localhost:4000/2022/01/11/arm-os.html"/>
    <updated>2022-01-11T00:00:00+11:00</updated>
-   <id>/2022/01/11/arm-os</id>
+   <id>http://localhost:4000/2022/01/11/arm-os</id>
    <content type="html">&lt;h2 id=&quot;wow&quot;&gt;Wow&lt;/h2&gt;
 &lt;p&gt;Theres many considerations.
 I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.&lt;/p&gt;
@@ -73,9 +509,9 @@ I dont want to say but unfortunately I dont have much rust experience and find i
  
  <entry>
    <title>Finally, the enlightenment shall begin</title>
-   <link href="/2022/01/09/post.html"/>
+   <link href="http://localhost:4000/2022/01/09/post.html"/>
    <updated>2022-01-09T00:00:00+11:00</updated>
-   <id>/2022/01/09/post</id>
+   <id>http://localhost:4000/2022/01/09/post</id>
    <content type="html">&lt;p&gt;
 It took some time, but it worked in the end.
 &lt;/p&gt;
@@ -87,9 +523,9 @@ It took some time, but it worked in the end.
  
  <entry>
    <title>Example content</title>
-   <link href="/2020/04/02/example-content.html"/>
+   <link href="http://localhost:4000/2020/04/02/example-content.html"/>
    <updated>2020-04-02T00:00:00+11:00</updated>
-   <id>/2020/04/02/example-content</id>
+   <id>http://localhost:4000/2020/04/02/example-content</id>
    <content type="html">&lt;h2 id=&quot;this-is-a-heading&quot;&gt;This is a Heading&lt;/h2&gt;
 
 &lt;div class=&quot;message&quot;&gt;
@@ -110,9 +546,9 @@ It took some time, but it worked in the end.
  
  <entry>
    <title>Hello</title>
-   <link href="/2020/04/01/whats-jekyll.html"/>
+   <link href="http://localhost:4000/2020/04/01/whats-jekyll.html"/>
    <updated>2020-04-01T00:00:00+11:00</updated>
-   <id>/2020/04/01/whats-jekyll</id>
+   <id>http://localhost:4000/2020/04/01/whats-jekyll</id>
    <content type="html">&lt;p&gt;Hi, I am Jason.&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;We dont do things because they are easy, but because they are hard.&lt;/p&gt;

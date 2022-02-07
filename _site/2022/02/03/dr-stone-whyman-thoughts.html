@@ -8,7 +8,7 @@
 
   <title>
     
-      Eletei &middot; The enlightened site
+      Thoughts on Whyman, up to Z=227 &middot; Eletei
     
   </title>
 
@@ -37,7 +37,7 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item active" href="/">Home</a>
+      <a class="sidebar-nav-item" href="/">Home</a>
 
       
 
@@ -83,94 +83,10 @@
 
 
     <div class="content container">
-      <div class="posts">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/02/08/spectro-update.html">
-        What to do?
-      </a>
-    </h1>
-
-    <span class="post-date">08 Feb 2022</span>
-
-    <h2 id="spectrovm">SpectroVM</h2>
-<p>So it seems like I should try to make a type 2 hypervisor. In that case you could write something like Yuzu where they simulate the ARM cpu completely in software. But pass the shaders and stuff into the host’s. It seems like they do that JIT or AOT right before you launch the game. Then you are mostly bottlenecked by the CPU emulation, but the GPU is mostly fine because you can transpile a lot of the vulkan code or something.</p>
-
-<h2 id="rv-1-chisel-testing">RV-1 Chisel Testing</h2>
-<p>Something is with that chisel testing. Maybe its the <code class="language-plaintext highlighter-rouge">extends XTest</code> or something that makes it not able to test in a builder context. Idk but damn.</p>
-
-<p>What about simulating it? We have to compile it to c++ and modify the header/sources to interface with extra stuff. If its possible to build a VM with that, then one could modify it to do something like interface with the host’s device and drivers, etc.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/02/07/spectro-update.html">
-        Spectro Update
-      </a>
-    </h1>
-
-    <span class="post-date">07 Feb 2022</span>
-
-    <h2 id="spectro-simulator">Spectro Simulator</h2>
-<p>I dont really want to use QEMU because then I will have to code for Sifive boards and be restricted to them. Technically I could use QEMU risc-v bare, which seems mostly good and implemented. And they have extra config and extensions. But then I’ll have to use C and write the extensions and compile it/set a new configuration. So then I will have to use a 3rd party API. I dont like that idea.</p>
-
-<p>So I wanted to build a VM, software emulator for riscv. Now it will just be interpreted, i.e. instructions converted on demand to x86. For simple unit tests and integration tests, should be fine. Printing should be fast and so as mallocing and stuff. But the problem is when you start testing out bigger apps and functionality which should get exponentially slower as you are interpreting them line by line. So then you can AOT transpile the riscv elf image into a form that can be executed in a containerised environment. Spectrainer x86 is an idea for a container/docker type environment on win32/x86 where you can run a transpiled riscv bare metal img.</p>
-
-<h2 id="drivers">Drivers</h2>
-<p>I dunno about it. In linux &gt;50% of the code are drivers. I think its a good idea to make drivers pluggable modules and have some open source, non-specific or official modules loaded by default. The installer can also check if any connected device would be supported by a driver from the driver module list. If there is that module can be linked in the install phase rather than the runtime phase.</p>
-
-<h2 id="spectrovm-drivers">SpectroVM Drivers</h2>
-<p>The VM hardly needs any firmware since we are mostly trying to emulate the functionality of key devices char, block and network. Of which, mouse, kb, speaker, mic, output display, storage disk, ram, cpu, gpu are of interest. The output display driver is merely the monitor driver. The actual graphics stuff is handled by the graphics driver which can be quite complex. So as the network driver. For networking we simply provide an interface for ethernet, wifi, bt and connect it directly to the underlying stuff. I dont wanna touch networking too much rn but it is def quite a cool thing. You dont wanna end up like linux lol.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/02/07/github-update.html">
-        Something wrong with Github workflow?
-      </a>
-    </h1>
-
-    <span class="post-date">07 Feb 2022</span>
-
-    <h2 id="idk">Idk</h2>
-<p>Its not pushing the latest posts</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/02/06/update-mind.html">
-        My Mind
-      </a>
-    </h1>
-
-    <span class="post-date">06 Feb 2022</span>
-
-    <h2 id="why-my-mind-sucks">Why my mind sucks</h2>
-<p>Apparently theres some inefficient connections between specific sets of neurons in the frontal lobe. Something about the connections being a bit messy between the left and right hemispheres.</p>
-
-<p>As a result I am like this. An idiot. Yes, it is what it is. I hate it. Well Idk at least I know I wont be dying like a slave like everyone else. Imagine slaving away.</p>
-
-<p>Slaving away for eternity. 40 years. Then another 40 years of boredom and uselessness. You dont do anything. Nothing new. You dont discover new things. You dont invent. You are just a shell.</p>
-
-<p>Thats the fate of a lot of people. It is sad indeed.
-I dont want to be like that.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/02/03/dr-stone-whyman-thoughts.html">
-        Thoughts on Whyman, up to Z=227
-      </a>
-    </h1>
-
-    <span class="post-date">03 Feb 2022</span>
-
-    <h1 id="analysis-of-dr-stone-and-whyman">Analysis of Dr. Stone and Whyman</h1>
+      <div class="post">
+  <h1 class="post-title">Thoughts on Whyman, up to Z=227</h1>
+  <span class="post-date">03 Feb 2022</span>
+  <h1 id="analysis-of-dr-stone-and-whyman">Analysis of Dr. Stone and Whyman</h1>
 <p>I want to come at this from a mostly rational perspective. This means,</p>
 <ol>
   <li>I’ll take assumptions much less seriously than actual evidence</li>
@@ -337,18 +253,43 @@ I dont want to be like that.</p>
 <p>That means Whyman can still be a physical thing, like a person or device. But I believe his physical identity is less meaningful than what he represents.</p>
 
 
-  </div>
-  
 </div>
 
-<div class="pagination">
-  
-    <a class="pagination-item older" href="http://localhost:4000/page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+
+<div class="related">
+  <h2>Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/08/spectro-update.html">
+            What to do?
+            <small>08 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/07/spectro-update.html">
+            Spectro Update
+            <small>07 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="http://localhost:4000/2022/02/07/github-update.html">
+            Something wrong with Github workflow?
+            <small>07 Feb 2022</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
 </div>
+
 
     </div>
 

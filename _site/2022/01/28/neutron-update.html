@@ -8,7 +8,7 @@
 
   <title>
     
-      Damn, writing an OS is a lot of stuff &middot; Eletei
+      Neutron Update &middot; Eletei
     
   </title>
 
@@ -84,15 +84,13 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">Damn, writing an OS is a lot of stuff</h1>
-  <span class="post-date">11 Jan 2022</span>
-  <h2 id="wow">Wow</h2>
-<p>Theres many considerations.
-I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.</p>
+  <h1 class="post-title">Neutron Update</h1>
+  <span class="post-date">28 Jan 2022</span>
+  <h2 id="running-neutron--arcboot-on-spectrum-soc">Running Neutron + ArcBoot on Spectrum SoC</h2>
+<p>So we want to compile Neutron to a .lib and link with arcboot.o to form <code class="language-plaintext highlighter-rouge">kernel.img</code>. This image can then be flashed onto a virtual drive <code class="language-plaintext highlighter-rouge">ssd.vhd</code> and placed on the host machine, e.g. <code class="language-plaintext highlighter-rouge">dev/ssd.vhd</code>. Then use verilator to simulate the SoC (RV-1 + PCIE + HDMI/UART for now). So I’d have to somehow connect the PCIE 4.0 lane to ssd.vhd, or we have to simulate an SSD within the SoC and flash the image onto their beforehand, after compiling to verilog. Then I’d have to link the UART port to the output of the terminal somehow, maybe thats possible somehow, with verilator.</p>
 
-<p>But rn the stuff are mostly like, drivers, security and safety, extensibility &amp; maintainability -&gt; I think this could be intrinsic if we have a simple model, also kernel services API for implemnting programming language compilers.</p>
-
-<p>Biggest thing though is, well i just feel embarrassed to say but. Yea running the actual arm OS on bare metal. In theory should be relatively straightforward compared to x86. But the virtual memory/paging seems to be quite different and non existent in some cases. Also multiboot isnt supported apparently in the rust bootloader crate. But https://github.com/jncronin/rpi-boot/blob/master/MULTIBOOT-ARM describes a way to do it from scratch, so I guess I can wrap around it in unsafe C/asm blocks.</p>
+<h2 id="so-far">So far</h2>
+<p>Figured out how to create a basic bootloader in asm and kernel in rust and link them into a bootable img for qemu riscv64 (spike board). The output works. Im not sure about all the different views, guessing thats got something to do with the main QEMU monitor view vs UART serial view or something. Idk how to get it to print to the main monitor, if that even makes sense. The bootloader does seem to work I think, because it does go into <code class="language-plaintext highlighter-rouge">kernel_main</code>. The other stuff like setting up the stack and program segements for the kernel in RAM doesnt seem to matter too much rn. I dont really get how to compile all the rust code to a .lib/.o file, I did <code class="language-plaintext highlighter-rouge">--emit=obj</code> which seemed to emit some random <code class="language-plaintext highlighter-rouge">.o</code> file in <code class="language-plaintext highlighter-rouge">target/debug/deps/</code> instead of <code class="language-plaintext highlighter-rouge">target/neutron/</code> or something. It also emits a different obj file name sometimes and doesnt delete the old one. So I dont think this is how one is meant to be cross compiling rust. I dont really get it then, maybe its better and recommended to link with rustc directly somehow, by specifying <code class="language-plaintext highlighter-rouge">boot.S</code> and <code class="language-plaintext highlighter-rouge">linker.ld</code> when we build for riscv64gc? I think there was a way to do that but idk rn and a bit confused.</p>
 
 </div>
 

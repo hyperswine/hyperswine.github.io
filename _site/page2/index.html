@@ -12,15 +12,15 @@
     
   </title>
 
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
 
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
 </head>
 
   <body>
@@ -45,7 +45,7 @@
       
         
           
-            <a class="sidebar-nav-item" href="/about.html">About</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/about.html">About</a>
           
         
       
@@ -57,7 +57,15 @@
       
         
           
-            <a class="sidebar-nav-item" href="/project.html">Project</a>
+            <a class="sidebar-nav-item" href="http://localhost:4000/project.html">Project</a>
+          
+        
+      
+        
+          
+        
+      
+        
           
         
       
@@ -79,17 +87,139 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2020/04/01/whats-jekyll.html">
-        Hello
+      <a href="http://localhost:4000/2022/02/01/spectro-update.html">
+        Spectro Update
       </a>
     </h1>
 
-    <span class="post-date">01 Apr 2020</span>
+    <span class="post-date">01 Feb 2022</span>
 
-    <p>Hi, I am Jason.</p>
-<blockquote>
-  <p>We dont do things because they are easy, but because they are hard.</p>
-</blockquote>
+    <h2 id="rv-1">RV-1</h2>
+<p>So I uploaded my RV-1 draft core to github, its pretty rough and I hardly know what I am even doing. But you know its just too cool to give up. Anyway Im having quite a bit of a problem with testing. Something wrong with not being in a builder context with one of the tests.</p>
+
+<p>Im trying to test the ALU and specified x, y, and op. Then I stepped over a clock cycle. Then I called <code class="language-plaintext highlighter-rouge">expect()</code> on the  io result. Im not sure where it is stopping, maybe I could have some <code class="language-plaintext highlighter-rouge">printf</code> statements within the test functions too?</p>
+
+<h2 id="spectro-vr">Spectro VR</h2>
+<p>Yes it is way too cool. I dunno how but yes. With a nice 3d printer we can try stuff out. But I’ll need some space first. At least a few cabinets, the one big one on the wall and 2 mounted on the wall. Also 2 cabinets in the kitchenette.</p>
+
+<h2 id="neutron-kernel-interfacing-with-spectro-simulator">Neutron Kernel interfacing with Spectro Simulator</h2>
+<p>QEMU is kinda annoying to deal with since it is in C. Like the interface is in C if you want higher level customisation. Which isnt great. I want to build an interface to a spectro runner in rust. Maybe in arcboot or something.</p>
+
+<p>So with QEMU theres a bunch of things with the UART0 ports and stuff which I dont like. Well at least for now. It’d be great to emulate a parallel port and interface with the Spectro ABI within a containerised environment. Like docker or a custom container arch like ardaku containers.</p>
+
+<h2 id="ardaku-containers">Ardaku Containers</h2>
+<p>An idea for <code class="language-plaintext highlighter-rouge">.wasm</code> files. So you have a docker like thing with its own isolated filesystem (basically a zip file emulated as a complete HFS like a <code class="language-plaintext highlighter-rouge">.vhd</code> file) and env variables. Then if you want to emulate riscv you cant really make use of type 1 virtualisation. So you have to stick to type 2 and either interpret the riscv instructions or transpile JIT/AOT. Transpiling AOT means you have to write a wrapper to translate all the instructions to x86 ones, which in theory should run well but for bare metal and lower level code maybe not. Better then to run wasmer on the host system/os + ISA and run the wasm binaries JIT.</p>
+
+<h2 id="spectro-simulator">Spectro Simulator</h2>
+<p>Basically a RISCV64GC software emulator. You emulate an entire CPU that you want to emulate. Then you
+make an interface for it in yew.rs or something. Or iced-rs. Literally just 32 of the 32-bit registers when in 32-bit mode. Idk how to implement ‘machine modes to user modes’ i.e. levels 3-0 in hardware. Maybe it isnt too hard. But in software its not that bad, just might not be that efficient.</p>
+
+<p>The emulator will run in a container or something with its own set of RAM and files. Then we copy a riscv binary over. The emulator will execute the instructions in ‘machine’ mode. Usually it would be able to affect anything but it is in a container so it cant completely destroy the RAM and files I think. Anyway so inside the container, we run the program and specify the file to run. Then it runs it sequentially and we get to see the output of the registers and memory. Idk how it can affect memory, maybe we can just open a <code class="language-plaintext highlighter-rouge">RAM.txt</code> file in memory and it literally just uses that as RAM. It can use as much of it as it wants (possible as long as there is enough RAM).</p>
+
+<p>For devices, we can simulate a monitor with the console or an opengl window or something. Maybe if it writes stuff to UART0 we redirect it to <code class="language-plaintext highlighter-rouge">UART0.txt</code> and show the contents as more stuff is being written. So read() and write() affects <code class="language-plaintext highlighter-rouge">UART0.txt</code>. KB and Mouse inputs are not supported yet without drivers that somehow direct my mouse positions and keyboard presses to interrupts. Might need some kind of software program unless I can redirect them to the program’s interrupt controller ABI almost natively.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/29/spectrum-simulation.html">
+        Spectrum SoC
+      </a>
+    </h1>
+
+    <span class="post-date">29 Jan 2022</span>
+
+    <h2 id="building-the-soc">Building the SoC</h2>
+<p>So we would use chisel (scala library) to build and test the SoC. For in depth testing one can convert to verilog and test on a lower level, or convert to C++ afterwards as well. If wanting to simulate on software, will prob have to use verilator for performance and accuracy.</p>
+
+<h2 id="generating-verilog">Generating Verilog</h2>
+<p>Say you have an app in chisel,</p>
+
+<figure class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">object</span> <span class="nc">Main</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+  <span class="o">(</span><span class="k">new</span> <span class="nv">chisel3</span><span class="o">.</span><span class="py">stage</span><span class="o">.</span><span class="py">ChiselStage</span><span class="o">).</span><span class="py">emitVerilog</span><span class="o">(</span><span class="k">new</span> <span class="nc">CPU</span><span class="o">,</span> <span class="n">args</span><span class="o">)</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Will generate verilog for your <code class="language-plaintext highlighter-rouge">CPU</code> class. I think it is systemverilog, though Im not 100% sure. Also idk if Verilog and SystemVerilog is both compatible with Verilator since they seem to suggest they only support one or the other or something.</p>
+
+<h2 id="generating-c-and-simulating">Generating C++ and Simulating</h2>
+<p>So you do <code class="language-plaintext highlighter-rouge">verilator --cc &lt;verilog files&gt; --Mdir &lt;output_dir&gt; --exe</code> to transpile verilog to executable c++ code. You can also specify <code class="language-plaintext highlighter-rouge">--build cmake</code> to use cmake to build the code into an executable for your platform.</p>
+
+<p>To increase simulation performance, can use <code class="language-plaintext highlighter-rouge">--threads 6</code> to transpile with verilator. This generates code that uses multiple threads.</p>
+
+<p>Btw instead of running verilator directly you can use cmake for the whole thing, e.g.</p>
+
+<figure class="highlight"><pre><code class="language-cmake" data-lang="cmake"><span class="nb">project</span><span class="p">(</span>cmake_example<span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span>verilator HINTS $ENV{VERILATOR_ROOT}<span class="p">)</span>
+<span class="nb">add_executable</span><span class="p">(</span>Vour sim_main.cpp<span class="p">)</span>
+<span class="nf">verilate</span><span class="p">(</span>Vour SOURCES our.v<span class="p">)</span></code></pre></figure>
+
+<p>Verilates the verilog to c++ and compiles it to an executable <code class="language-plaintext highlighter-rouge">Vour</code>.</p>
+
+<h2 id="connnecting-to-the-model">Connnecting to the Model</h2>
+<p>To hook onto the output model, verilate the verilog which produces <code class="language-plaintext highlighter-rouge">{prefix}.h</code>. Inside contains a <code class="language-plaintext highlighter-rouge">{prefix}</code> class. It contains the interface for your model. So Im guessing here you can e.g. connect an SSD to one of its ports using another model. You would do it in <code class="language-plaintext highlighter-rouge">{prefix}.cpp</code>.</p>
+
+<p>Well ok.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/28/spectro-update.html">
+        Spectro Update
+      </a>
+    </h1>
+
+    <span class="post-date">28 Jan 2022</span>
+
+    <h2 id="top-down-thinking-and-bottom-up-thinking">Top down thinking and Bottom up thinking</h2>
+<p>So I found coding stuff from top down to be a great thing. Bottom up also seems ok but maybe its not that great to do the stuff at the bottom. I do like hardware.</p>
+
+<h2 id="phantasm">Phantasm</h2>
+<p>So yea it would be cool to have our own assembler from a syntax, e.g. Phantasm to RISC-V opcodes and stuff. So at startup the CPU is programmed to load instructions from the BIOS to RAM and execute them sequentially (single thread prob). It will load basic things like GPIO and power on some ports and stuff I think. Then the BIOS ROM will have an instruction to look at bootable drives. If EFI, will look for a boot.EFI file in the drives in a specific order defined by rules (user can change them). The first disk containing a boot.EFI will be booted.</p>
+
+<h2 id="bootloader">Bootloader</h2>
+<p>To boot that disk the BIOS ROM will look for pointers and stuff to partitions containing EFI boot partitions. Then it will load them into RAM. The BIOS ROM will then hand the execution to the bootloader program in RAM by incrementing the PC to the bootloader instruction addr. If multicore might be more complex but idk single thread looks ok for this part anyway. Multithreading becomes an issue in kernel load prob.</p>
+
+<p>So now the bootloader program is running. It would have more control and complexity over the hardware. It may display images and stuff and even animations, which the BIOS ROM would prob be too small to do. The Bootloader is responsible for setting up the kernel by applying the kernel’s config options, maybe stored in an ascii file header in the kernel header partition. Then it will load the kernel img into RAM, I think via DMA. With PCIE 4.0 SSDs and DDR5 RAM it should be a breeze. The thing is then to start executing the kernel code.</p>
+
+<h2 id="kernel">Kernel</h2>
+<p>The kernel will have to set itself up like a normal program would. It would prob setup its managers and services, actually I think the services (syscalls) are already setup as the syscall ABI the moment the kernel is loaded. It will prob load its modules like filesystem manager (view of files), network manager (sockets), driver manager to listen to and handle hardware to do complex stuff. Any key background services (daemons) would be started and be listening on a socket to handle requests.</p>
+
+<h2 id="gui">GUI</h2>
+<p>Then we can get to the cool part. Complex graphics and Applications. Up to now just a black screen with maybe a pseudo terminal like setup like in FreeBSD. But now we can start the Window System and Window Manager. Some graphics may have already been loaded like animations in Win10 before login. But these are dynamic graphics and animations. Now the WM has loaded (and using the underlying kernel graphics modules with vulkano), we can start up some OS apps like the Desktop GUI, dock, app list, Desktop Widgets. Then startup apps like defender GUI, driver GUIs, third party stuff can be started. Finally the OS is fully loaded and ready to use without problems, e.g. race conditions.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/28/neutron-update.html">
+        Neutron Update
+      </a>
+    </h1>
+
+    <span class="post-date">28 Jan 2022</span>
+
+    <h2 id="running-neutron--arcboot-on-spectrum-soc">Running Neutron + ArcBoot on Spectrum SoC</h2>
+<p>So we want to compile Neutron to a .lib and link with arcboot.o to form <code class="language-plaintext highlighter-rouge">kernel.img</code>. This image can then be flashed onto a virtual drive <code class="language-plaintext highlighter-rouge">ssd.vhd</code> and placed on the host machine, e.g. <code class="language-plaintext highlighter-rouge">dev/ssd.vhd</code>. Then use verilator to simulate the SoC (RV-1 + PCIE + HDMI/UART for now). So I’d have to somehow connect the PCIE 4.0 lane to ssd.vhd, or we have to simulate an SSD within the SoC and flash the image onto their beforehand, after compiling to verilog. Then I’d have to link the UART port to the output of the terminal somehow, maybe thats possible somehow, with verilator.</p>
+
+<h2 id="so-far">So far</h2>
+<p>Figured out how to create a basic bootloader in asm and kernel in rust and link them into a bootable img for qemu riscv64 (spike board). The output works. Im not sure about all the different views, guessing thats got something to do with the main QEMU monitor view vs UART serial view or something. Idk how to get it to print to the main monitor, if that even makes sense. The bootloader does seem to work I think, because it does go into <code class="language-plaintext highlighter-rouge">kernel_main</code>. The other stuff like setting up the stack and program segements for the kernel in RAM doesnt seem to matter too much rn. I dont really get how to compile all the rust code to a .lib/.o file, I did <code class="language-plaintext highlighter-rouge">--emit=obj</code> which seemed to emit some random <code class="language-plaintext highlighter-rouge">.o</code> file in <code class="language-plaintext highlighter-rouge">target/debug/deps/</code> instead of <code class="language-plaintext highlighter-rouge">target/neutron/</code> or something. It also emits a different obj file name sometimes and doesnt delete the old one. So I dont think this is how one is meant to be cross compiling rust. I dont really get it then, maybe its better and recommended to link with rustc directly somehow, by specifying <code class="language-plaintext highlighter-rouge">boot.S</code> and <code class="language-plaintext highlighter-rouge">linker.ld</code> when we build for riscv64gc? I think there was a way to do that but idk rn and a bit confused.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/27/neutron-update.html">
+        Neutron Update
+      </a>
+    </h1>
+
+    <span class="post-date">27 Jan 2022</span>
+
+    <h2 id="tdd-and-full-suite">TDD and Full Suite</h2>
+<p>I was thinking that TDD really helped. Heh that 1531 course truly made sense. When you start with tests you start to see how the program should work. This is nice when you try kernel deving. I guess program deving also works nicely too. Another thing is to start from the top and go down. Then you can see how everything fits in together within the guidelines of software eng. Stuff like KISS, DRY, loose coupling, first principles. Starting from the bottom also helps if you have restrictions. For hardware we are restricted by current technologies (for the next e.g. 3-5 years) and economical reasoning. We want preferrably low costs and high performance within the bounds of what is currently possible. And research and new tech is apparently also costly but idk, I kind of like it too.</p>
+
+<p>So stuff like new software isnt as problematic as new hardware. Things at the highest level like software apps, GUI, etc are also limited by what the hardware and optimisations can provide. But it should be fine I think. If you start from the hardware and build up as well as simultaneously starting from what the people need for the next few years and build down, you eventually arrive at a nice concept for a kernel. I think such conception would be minimalistic in its overall memory and performance footprint. According to the latest guidelines of seng and laws of nature, things should be at the lowest energy level and not be wasteful. Individualist, single responsibility. So maybe pluggable kernel modules in a dir called <code class="language-plaintext highlighter-rouge">/mods</code> or something like git submodules pluggable into <code class="language-plaintext highlighter-rouge">/mods</code>? Then have a similar API to load such modules between certain layers. E.g. a driver module plugs into <code class="language-plaintext highlighter-rouge">/driver/mod</code> and a higher level, e.g. graphics module plugs into <code class="language-plaintext highlighter-rouge">/service/mod</code>. Then the graphics can be decoupled almost completely from the core manager logic and if you wanted to update it you can easily update and replace the logic without having to touch the core kernel logic. You would still have to change the app-graphics service interface and code it seems.</p>
 
   </div>
   
@@ -97,11 +227,11 @@
 
 <div class="pagination">
   
-    <span class="pagination-item older">Older</span>
+    <a class="pagination-item older" href="http://localhost:4000/page3">Older</a>
   
   
     
-      <a class="pagination-item newer" href="/">Newer</a>
+      <a class="pagination-item newer" href="http://localhost:4000/">Newer</a>
     
   
 </div>

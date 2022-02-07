@@ -8,7 +8,7 @@
 
   <title>
     
-      Damn, writing an OS is a lot of stuff &middot; Eletei
+      Neutron Update &middot; Eletei
     
   </title>
 
@@ -84,15 +84,12 @@
 
     <div class="content container">
       <div class="post">
-  <h1 class="post-title">Damn, writing an OS is a lot of stuff</h1>
-  <span class="post-date">11 Jan 2022</span>
-  <h2 id="wow">Wow</h2>
-<p>Theres many considerations.
-I dont want to say but unfortunately I dont have much rust experience and find it kinda meh to write something up from scratch. It really helps to visualise as OOP first. And simple things like for loops, while loops, if and switch statements on enums.</p>
+  <h1 class="post-title">Neutron Update</h1>
+  <span class="post-date">27 Jan 2022</span>
+  <h2 id="tdd-and-full-suite">TDD and Full Suite</h2>
+<p>I was thinking that TDD really helped. Heh that 1531 course truly made sense. When you start with tests you start to see how the program should work. This is nice when you try kernel deving. I guess program deving also works nicely too. Another thing is to start from the top and go down. Then you can see how everything fits in together within the guidelines of software eng. Stuff like KISS, DRY, loose coupling, first principles. Starting from the bottom also helps if you have restrictions. For hardware we are restricted by current technologies (for the next e.g. 3-5 years) and economical reasoning. We want preferrably low costs and high performance within the bounds of what is currently possible. And research and new tech is apparently also costly but idk, I kind of like it too.</p>
 
-<p>But rn the stuff are mostly like, drivers, security and safety, extensibility &amp; maintainability -&gt; I think this could be intrinsic if we have a simple model, also kernel services API for implemnting programming language compilers.</p>
-
-<p>Biggest thing though is, well i just feel embarrassed to say but. Yea running the actual arm OS on bare metal. In theory should be relatively straightforward compared to x86. But the virtual memory/paging seems to be quite different and non existent in some cases. Also multiboot isnt supported apparently in the rust bootloader crate. But https://github.com/jncronin/rpi-boot/blob/master/MULTIBOOT-ARM describes a way to do it from scratch, so I guess I can wrap around it in unsafe C/asm blocks.</p>
+<p>So stuff like new software isnt as problematic as new hardware. Things at the highest level like software apps, GUI, etc are also limited by what the hardware and optimisations can provide. But it should be fine I think. If you start from the hardware and build up as well as simultaneously starting from what the people need for the next few years and build down, you eventually arrive at a nice concept for a kernel. I think such conception would be minimalistic in its overall memory and performance footprint. According to the latest guidelines of seng and laws of nature, things should be at the lowest energy level and not be wasteful. Individualist, single responsibility. So maybe pluggable kernel modules in a dir called <code class="language-plaintext highlighter-rouge">/mods</code> or something like git submodules pluggable into <code class="language-plaintext highlighter-rouge">/mods</code>? Then have a similar API to load such modules between certain layers. E.g. a driver module plugs into <code class="language-plaintext highlighter-rouge">/driver/mod</code> and a higher level, e.g. graphics module plugs into <code class="language-plaintext highlighter-rouge">/service/mod</code>. Then the graphics can be decoupled almost completely from the core manager logic and if you wanted to update it you can easily update and replace the logic without having to touch the core kernel logic. You would still have to change the app-graphics service interface and code it seems.</p>
 
 </div>
 

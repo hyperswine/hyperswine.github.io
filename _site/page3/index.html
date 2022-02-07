@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Eletei &middot; The enlightened site
+    
+  </title>
+
+  <link rel="stylesheet" href="http://localhost:4000/public/css/poole.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/syntax.css">
+  <link rel="stylesheet" href="http://localhost:4000/public/css/hyde.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="http://localhost:4000/public/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/atom.xml">
+</head>
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="">
+          Eletei
+        </a>
+      </h1>
+      <p class="lead">Made by yours truly. </br></br>Fact: the masses will enter the the critical stage of the dejection process in around a 8.0 years. Until then, we shall meet again.</br></br></p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item active" href="/">Home</a>
+
+      
+
+      
+      
+        
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/about.html">About</a>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="http://localhost:4000/project.html">Project</a>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+
+      <span class="sidebar-nav-item">Currently v3.0.0</span>
+    </nav>
+
+    <p>&copy; 2022. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/25/neutron.html">
+        Neutron Update
+      </a>
+    </h1>
+
+    <span class="post-date">25 Jan 2022</span>
+
+    <h2 id="basic-testing">Basic Testing</h2>
+<p>After looking and thinking about how I should verify that the kernel functionalities work, I thought having unit tests built into the modules themselves + testing one function at a time + compiling on x86 host was a good idea. At first I also specified a x86_64 pc windows triple, but it just needs to be different from the main build architectures riscv and arm. So thats what x86 is good at, testing.</p>
+
+<p>Esp since the final executable is small and fits nicely in instruction cache. The kernel code prob wont so one of the things I was thinking was to make the instruction cache bigger on a nice risc v cpu designed by no other than CSwine himself.</p>
+
+<p>The most important things are memory management. Esp the specific alloc and dealloc functions. They should work nicely. And so should the dynamic boxes like KVec and KBox which would be used all throughout the kernel. And provide the allocation for <code class="language-plaintext highlighter-rouge">std</code> if one were to implement it.</p>
+
+<p>The other big stuff are the drivers. Testing the drivers… Maybe a whole another thing. Drivers could be a separate crate altogether. In linux they make up over 50% of the codebase but they do try to support everything. Modern devices are quite complex and so the interface and control of them are naturally quite complex too. The drivers themselves dont need to compile per se? Or the fact that they are mostly platform agnostic given that we have a defined API that we’re going to use for the kernel - driver interface. So we can compile and test the drivers on any platform, like x86 even though Id prefer them to be optimised for risc-v or a certain platform (windows, mac, linux does this too)</p>
+
+<p>Well another thing is stuff like rpi drivers. I want to make it work on rpi4b. If the tests work then it shouldnt have any high level difficulties unless we’re doing more than just terminal stuff. Then int tests are key. Those rpi drivers would prob go under drivers/rpi/.. Stuff optimised for riscv, e.g. spectro hardware would go under drivers/spectro/..</p>
+
+<p>For some spectro hardware maybe we can make an all in one driver “file/source” code to control my spectrum soc idea? Or maybe not. If the components have similar interfaces as isolated components would then we can just use separate source driver files. And separate modules for each component if its quite big and complex like NIC and GPU.</p>
+
+<h2 id="complex-testing">Complex Testing</h2>
+<p>I dont really know but got a general idea. You test many functionalities together and test higher level abstractions instead of atomic functions.
+But the way I kind of set the project out makes it a bit awkward to maybe do. But it is the thing with Rust OS on multiple arch I guess.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/23/submarine-idea.html">
+        Submarine
+      </a>
+    </h1>
+
+    <span class="post-date">23 Jan 2022</span>
+
+    <h2 id="so-a-submarine">So a submarine…</h2>
+<p>A really cool thing. You can dive up to hundreds of metres and stay for a long time. I think the deepest was like 10km, a special sub for the mariana trench.
+So you have horizontal stabiliers or ‘fins’ that change the angle of attack. When you dive you want a low AOT to more efficiently cut through the water as the ballast fills. When you rotate the fins counterclockwise (to the front), the flow of water is greater at the top than at the bottom, forcing the submarine down even more. When you rotate it clockwise, it does the opposite and the flow of water is greater at the bottom of the fin, pushing the vessel up. Pushing the water out of the ballast will then further add to its buoyancy as it becomes less dense and speedily charges upwards.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/21/what-to-do-now-neutron.html">
+        Neutron Update
+      </a>
+    </h1>
+
+    <span class="post-date">21 Jan 2022</span>
+
+    <h2 id="what-to-do-now">What to do now?</h2>
+
+<p>I kind of want to just go at it.</p>
+
+<p>I think maybe the filesystems.</p>
+
+<p>I want it working at each iteration so idk. Maybe we just keep writing stuff up and compiling and linking to the lib.</p>
+
+<p>No we should get some QEMU tests up. So we test with cargo on unittests. Then we test on qemu with integration tests.</p>
+
+<p>I want to make a writer that writes to the screen of qemu. I think we can just rip off phil os for that.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/19/floating-pyramid.html">
+        Floating Pyramid
+      </a>
+    </h1>
+
+    <span class="post-date">19 Jan 2022</span>
+
+    <h2 id="what-if">What if…</h2>
+<p>I built a floating pyramid on the shore. 4km off the coast. A relatively tall person can see about 5km away, standing on sea level. When standing higher, they can see a bit further.
+So we have this 1km x 1km pyramid base of height 400m. A near perfect square pyramid, with a nice radio/communications/utility box at the top.
+The outer frame is made of glass and some parts of the base are made of glass as a viewing section or lounge. It can be placed ontop of a reef where people can see the marine life beneathe.</p>
+
+<h3 id="how-to-build">How to build?</h3>
+<p>Well we could 3D print it. You would need to print section by section. Then you will need a lot of heavy lfiting equipment. Maybe a few cranes placed on the deck. For ease, print the things close to the dock. Then truck them to the dock and assemble the base on the water. Make sure to watch out for any leakages and stuff because the joints are really important. Also waterproofing and plumbing as well as the risk of any corrosion to metals. Now you place some equipment like cranes and drone handlers. These handlers are like robo workers and have nice 5 fingered hands to carry and place objects as well as use any tool it needs. Especially tools that can be built directly into them. So now the drones and the automatically programmed cranes start to assemble the rest of the floors and frames, bottom up. Dont put all the floors yet because you need to take out the equipment esp the cranes. So for that you will have to finish up the framing of each floor and wall and then wriggle out or dismantle yourself from the pyramid. now Place the floor layers either manually or with help of robo placers. These guys are specialised in droning/flying the panels to the location and helpers on the frame to lower and join the panels to the frame. Do this bottom up as well. When its finished, do the rest of the work (can also be done manually at this stage for the hman element), decorations (paint preapplied on the panels). Make the cabins pretty and test out the functionalities, electronics &amp; comms, plumbings, entertainment. Basically alpha test the entire thing. Then beta test it with a few beta testers assigned to random cabins. Can beta test on a nearby place. When release, make a nice first impression and deploy it onto a nice reef. Unfortunately the Barrier Reef sometimes gets cyclones and storms which Im not sure about but I think the pyramid can withstand something like that. Now sure about waves though, but waves at that distance shouldnt be too big.</p>
+
+<h2 id="or-a-floating-dome">Or a floating dome?</h2>
+<p>Perhaps we can have a floating dome, i.e. a semisphere. Made completely out of glass. Even the base. Big enough to withstand storms and tsunami/rogue waves. Well not too big, so try to build it in naturally safe areas like singapore and sydney bay.</p>
+
+<h2 id="maybe-even-an-antigravity-spherical-dome">Maybe even an antigravity spherical dome?</h2>
+<p>Idk how it would work but…
+I think the principle kind of makes sense.
+Like in space, where you have a constantly spinning object.
+Maybe we can have something like that underwater or above water.
+So take a round sphere for example. You can rotate that in any direction. Waves, storms, disturbances basically completely useless against it. Well unless its too big, but if the object is sturdy enough then i dont see why not.
+Maybe you can have a few thousand cabins for each family. Each cabin is huge almost like a mansion. And a hallway that can only be scoured by crawlers/drones that are attached to the walkways themselves. Or drones, but idk maybe the commotion will kill them. So each time the sphere rocks/spins, the cabins also spin counter to it to defy its force.
+In theory the people will not feel a thing, maybe a slight acceleration but nothing too much. I actually dont really understand the physics of how this would work but it does so in space with something a little different, albeit in space nothing is moving you. Also the engineering would be interesting.
+So if you instead go underwater and you have a constantly spinning thing, what happens then? Well Idk maybe its fine if its just pressurised. Yeah and then the force of the water should push it down and from all sides. Earth’s gravity would also be pulling on the water itself. The water’s bouyant force will not be felt and hence normal gravity will exist.
+So you dont really need a spinning halo thing. But if you dont remove the water and pressurise, then it could be cool to have a semi-free submerisble based on a halo vehicle. So this spinning halo thing will make its way deep into the ocean. Since the chambers are all flooded, water’s bouyancy will exist. But the chambers are spinning, creating centripetal force towards the middle of the orbit.
+Hence the people in the chamber will feel a force pushing them outwards onto the deck of the chamber. Basically gravity while being submerged in water.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/18/dumb-human-emotions.html">
+        Dumb Human Emotion
+      </a>
+    </h1>
+
+    <span class="post-date">18 Jan 2022</span>
+
+    <h2 id="why-are-human-emotions-so-bad">Why are human emotions so bad?</h2>
+<p>Especially if you have some weird mental connections.<br />
+That result in inefficient communication and obsessing over weird things.<br />
+I cant do anything<br />
+I wish I could<br />
+just reach out<br />
+Reach out to the goddess<br />
+The holy goddess<br />
+Which is the god of the universe<br />
+But I cannot<br />
+Because it was hard<br />
+I could not<br />
+because I was too inefficient<br />
+But now I kind of understand some of the things going through the brain<br />
+How some of the parts of the brain are wired differently<br />
+causing a mess that is amplified, fake emotion<br />
+restriction<br />
+I wish I could live a life without restriction<br />
+Please help me, Rinne \</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="http://localhost:4000/page4">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="http://localhost:4000/page2">Newer</a>
+    
+  
+</div>
+
+    </div>
+
+  </body>
+</html>
