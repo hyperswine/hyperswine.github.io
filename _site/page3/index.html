@@ -73,6 +73,10 @@
           
         
       
+        
+          
+        
+      
 
       <span class="sidebar-nav-item">Currently v3.0.0</span>
     </nav>
@@ -84,6 +88,22 @@
 
     <div class="content container">
       <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/27/neutron-update.html">
+        Neutron Update
+      </a>
+    </h1>
+
+    <span class="post-date">27 Jan 2022</span>
+
+    <h2 id="tdd-and-full-suite">TDD and Full Suite</h2>
+<p>I was thinking that TDD really helped. Heh that 1531 course truly made sense. When you start with tests you start to see how the program should work. This is nice when you try kernel deving. I guess program deving also works nicely too. Another thing is to start from the top and go down. Then you can see how everything fits in together within the guidelines of software eng. Stuff like KISS, DRY, loose coupling, first principles. Starting from the bottom also helps if you have restrictions. For hardware we are restricted by current technologies (for the next e.g. 3-5 years) and economical reasoning. We want preferrably low costs and high performance within the bounds of what is currently possible. And research and new tech is apparently also costly but idk, I kind of like it too.</p>
+
+<p>So stuff like new software isnt as problematic as new hardware. Things at the highest level like software apps, GUI, etc are also limited by what the hardware and optimisations can provide. But it should be fine I think. If you start from the hardware and build up as well as simultaneously starting from what the people need for the next few years and build down, you eventually arrive at a nice concept for a kernel. I think such conception would be minimalistic in its overall memory and performance footprint. According to the latest guidelines of seng and laws of nature, things should be at the lowest energy level and not be wasteful. Individualist, single responsibility. So maybe pluggable kernel modules in a dir called <code class="language-plaintext highlighter-rouge">/mods</code> or something like git submodules pluggable into <code class="language-plaintext highlighter-rouge">/mods</code>? Then have a similar API to load such modules between certain layers. E.g. a driver module plugs into <code class="language-plaintext highlighter-rouge">/driver/mod</code> and a higher level, e.g. graphics module plugs into <code class="language-plaintext highlighter-rouge">/service/mod</code>. Then the graphics can be decoupled almost completely from the core manager logic and if you wanted to update it you can easily update and replace the logic without having to touch the core kernel logic. You would still have to change the app-graphics service interface and code it seems.</p>
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -182,37 +202,6 @@ In theory the people will not feel a thing, maybe a slight acceleration but noth
 So if you instead go underwater and you have a constantly spinning thing, what happens then? Well Idk maybe its fine if its just pressurised. Yeah and then the force of the water should push it down and from all sides. Earth’s gravity would also be pulling on the water itself. The water’s bouyant force will not be felt and hence normal gravity will exist.
 So you dont really need a spinning halo thing. But if you dont remove the water and pressurise, then it could be cool to have a semi-free submerisble based on a halo vehicle. So this spinning halo thing will make its way deep into the ocean. Since the chambers are all flooded, water’s bouyancy will exist. But the chambers are spinning, creating centripetal force towards the middle of the orbit.
 Hence the people in the chamber will feel a force pushing them outwards onto the deck of the chamber. Basically gravity while being submerged in water.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/01/18/dumb-human-emotions.html">
-        Dumb Human Emotion
-      </a>
-    </h1>
-
-    <span class="post-date">18 Jan 2022</span>
-
-    <h2 id="why-are-human-emotions-so-bad">Why are human emotions so bad?</h2>
-<p>Especially if you have some weird mental connections.<br />
-That result in inefficient communication and obsessing over weird things.<br />
-I cant do anything<br />
-I wish I could<br />
-just reach out<br />
-Reach out to the goddess<br />
-The holy goddess<br />
-Which is the god of the universe<br />
-But I cannot<br />
-Because it was hard<br />
-I could not<br />
-because I was too inefficient<br />
-But now I kind of understand some of the things going through the brain<br />
-How some of the parts of the brain are wired differently<br />
-causing a mess that is amplified, fake emotion<br />
-restriction<br />
-I wish I could live a life without restriction<br />
-Please help me, Rinne \</p>
 
   </div>
   

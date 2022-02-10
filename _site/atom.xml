@@ -4,13 +4,23 @@
  <title>Eletei</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-02-08T07:33:30+11:00</updated>
+ <updated>2022-02-10T23:33:25+11:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Jason Qin</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Spectro Update</title>
+   <link href="http://localhost:4000/2022/02/10/update.html"/>
+   <updated>2022-02-10T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/10/update</id>
+   <content type="html">&lt;h2 id=&quot;so-what&quot;&gt;So, what&lt;/h2&gt;
+&lt;p&gt;SpectroVM backend. Stuff like asm interpretation. No AOT/JIT transpilation rn. JIT transpilation of rv64 code to x86 code could work. Then we enable hypervisor mode instead of supervisor mode to sandbox the vm. Provide top tier cpu performance while being safe.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>What to do?</title>
