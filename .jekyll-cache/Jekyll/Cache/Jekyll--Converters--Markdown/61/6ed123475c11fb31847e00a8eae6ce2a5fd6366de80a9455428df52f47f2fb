@@ -1,4 +1,4 @@
-I"Œ<h2 id="this-is-a-heading">This is a Heading</h2>
+I"‹<h2 id="this-is-a-heading">This is a Heading</h2>
 
 <div class="message">
   Hi! This is a message
@@ -8,8 +8,7 @@
 
 <p>You can have code elements like <code class="language-plaintext highlighter-rouge">this</code>. Or <code class="language-plaintext highlighter-rouge">this</code>. If you want centered code:</p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console
-</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console</span>
 <span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return a + b</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span></code></pre></figure>
 
