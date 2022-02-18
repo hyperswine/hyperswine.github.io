@@ -91,6 +91,34 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="http://localhost:4000/2022/01/28/spectro-update.html">
+        Spectro Update
+      </a>
+    </h1>
+
+    <span class="post-date">28 Jan 2022</span>
+
+    <h2 id="top-down-thinking-and-bottom-up-thinking">Top down thinking and Bottom up thinking</h2>
+<p>So I found coding stuff from top down to be a great thing. Bottom up also seems ok but maybe its not that great to do the stuff at the bottom. I do like hardware.</p>
+
+<h2 id="phantasm">Phantasm</h2>
+<p>So yea it would be cool to have our own assembler from a syntax, e.g. Phantasm to RISC-V opcodes and stuff. So at startup the CPU is programmed to load instructions from the BIOS to RAM and execute them sequentially (single thread prob). It will load basic things like GPIO and power on some ports and stuff I think. Then the BIOS ROM will have an instruction to look at bootable drives. If EFI, will look for a boot.EFI file in the drives in a specific order defined by rules (user can change them). The first disk containing a boot.EFI will be booted.</p>
+
+<h2 id="bootloader">Bootloader</h2>
+<p>To boot that disk the BIOS ROM will look for pointers and stuff to partitions containing EFI boot partitions. Then it will load them into RAM. The BIOS ROM will then hand the execution to the bootloader program in RAM by incrementing the PC to the bootloader instruction addr. If multicore might be more complex but idk single thread looks ok for this part anyway. Multithreading becomes an issue in kernel load prob.</p>
+
+<p>So now the bootloader program is running. It would have more control and complexity over the hardware. It may display images and stuff and even animations, which the BIOS ROM would prob be too small to do. The Bootloader is responsible for setting up the kernel by applying the kernel’s config options, maybe stored in an ascii file header in the kernel header partition. Then it will load the kernel img into RAM, I think via DMA. With PCIE 4.0 SSDs and DDR5 RAM it should be a breeze. The thing is then to start executing the kernel code.</p>
+
+<h2 id="kernel">Kernel</h2>
+<p>The kernel will have to set itself up like a normal program would. It would prob setup its managers and services, actually I think the services (syscalls) are already setup as the syscall ABI the moment the kernel is loaded. It will prob load its modules like filesystem manager (view of files), network manager (sockets), driver manager to listen to and handle hardware to do complex stuff. Any key background services (daemons) would be started and be listening on a socket to handle requests.</p>
+
+<h2 id="gui">GUI</h2>
+<p>Then we can get to the cool part. Complex graphics and Applications. Up to now just a black screen with maybe a pseudo terminal like setup like in FreeBSD. But now we can start the Window System and Window Manager. Some graphics may have already been loaded like animations in Win10 before login. But these are dynamic graphics and animations. Now the WM has loaded (and using the underlying kernel graphics modules with vulkano), we can start up some OS apps like the Desktop GUI, dock, app list, Desktop Widgets. Then startup apps like defender GUI, driver GUIs, third party stuff can be started. Finally the OS is fully loaded and ready to use without problems, e.g. race conditions.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="http://localhost:4000/2022/01/28/neutron-update.html">
         Neutron Update
       </a>
@@ -162,29 +190,6 @@ But the way I kind of set the project out makes it a bit awkward to maybe do. Bu
     <h2 id="so-a-submarine">So a submarine…</h2>
 <p>A really cool thing. You can dive up to hundreds of metres and stay for a long time. I think the deepest was like 10km, a special sub for the mariana trench.
 So you have horizontal stabiliers or ‘fins’ that change the angle of attack. When you dive you want a low AOT to more efficiently cut through the water as the ballast fills. When you rotate the fins counterclockwise (to the front), the flow of water is greater at the top than at the bottom, forcing the submarine down even more. When you rotate it clockwise, it does the opposite and the flow of water is greater at the bottom of the fin, pushing the vessel up. Pushing the water out of the ballast will then further add to its buoyancy as it becomes less dense and speedily charges upwards.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/2022/01/21/what-to-do-now-neutron.html">
-        Neutron Update
-      </a>
-    </h1>
-
-    <span class="post-date">21 Jan 2022</span>
-
-    <h2 id="what-to-do-now">What to do now?</h2>
-
-<p>I kind of want to just go at it.</p>
-
-<p>I think maybe the filesystems.</p>
-
-<p>I want it working at each iteration so idk. Maybe we just keep writing stuff up and compiling and linking to the lib.</p>
-
-<p>No we should get some QEMU tests up. So we test with cargo on unittests. Then we test on qemu with integration tests.</p>
-
-<p>I want to make a writer that writes to the screen of qemu. I think we can just rip off phil os for that.</p>
 
   </div>
   

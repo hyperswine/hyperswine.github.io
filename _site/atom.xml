@@ -4,13 +4,36 @@
  <title>Eletei</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2022-02-14T03:26:50+11:00</updated>
+ <updated>2022-02-18T19:10:23+11:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Jason Qin</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Spectro Update</title>
+   <link href="http://localhost:4000/2022/02/18/spectro-update.html"/>
+   <updated>2022-02-18T00:00:00+11:00</updated>
+   <id>http://localhost:4000/2022/02/18/spectro-update</id>
+   <content type="html">&lt;h2 id=&quot;yay&quot;&gt;Yay?&lt;/h2&gt;
+&lt;p&gt;So I kinda overcame a bit of the negus in the brain. Anyway It kinda makes sense now. Maybe? The UART0 output now shows. I literally encapsulated within a macro and called it. And it worked. So…&lt;/p&gt;
+
+&lt;p&gt;Well now we can start building kernel modules that use the kernel manager. The kernel manager is started on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_start&lt;/code&gt;. Then the services are basically low level functions and algorithms that are builtin to the kernel code running. Higher level services like device service handler, networkd, loggers should be started after boot as a process running in pseudo kernel mode. Those services can be terminated by the user, with reprecussions. Though usually the kernel just resets or restarts them if something critical were to be messed with. So maybe those startup processes should just run in full kernel mode.&lt;/p&gt;
+
+&lt;p&gt;Also to compile a program to work on the kernel, need to first compile any bare metal riscv elf program. Then run that in userspace normally, on a single process thread (software process thread). Kernel should automatically handle multiple app level threads for a process. So async await can be handled by the kernel allocating another hardware thread. But to use higher level functionality, will need syscalls and mmio. For now, many things are just mmio. To call restricted stuff like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;open, close, read, write, fork&lt;/code&gt; need a syscall API. Can link &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;syscall.a&lt;/code&gt; at compile/link time to ensure rust &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;extern &quot;C&quot; fn read&lt;/code&gt; is found. By default, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;syscall.a&lt;/code&gt; is placed in the user HFS &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/lib/syscall.a&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The shell is very unix like. Pipes and files. I just like it more. But the GUI is very windowsy/macosy with a lot of beautiful graphics and anime.
+So that means stuff like ENV variables, .bashrc + .profile (called rei_profile instead), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;|&lt;/code&gt; are all kept. But you are encouraged to do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;less file.txt&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat file.txt | less&lt;/code&gt;. So the arch is pretty macos/OOP/functional like. The shell is mostly unix based but the bad stuff are taken out. The lower level stuff and other stuff are all from first principles. POSIX API layer is there by default because I dont see a better way to do things yet. I feel like POSIX does make sense with the file handlers, threads, etc. Some other things can be simplified and changed on the fly.&lt;/p&gt;
+
+&lt;h2 id=&quot;parser--analyzer&quot;&gt;Parser &amp;amp; Analyzer&lt;/h2&gt;
+&lt;p&gt;Hmm I think flex bison is pretty good. I could build something scala like that compiles to LLVM IR. That would be the big goal here. YEA&lt;/p&gt;
+
+&lt;h2 id=&quot;negus&quot;&gt;Negus&lt;/h2&gt;
+&lt;p&gt;I cant get over the negus. I keep feeling restricted and negus’d. The shame and stuff. I feel like I can go out though. Yea I not only can. I must.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Spectro Update</title>
