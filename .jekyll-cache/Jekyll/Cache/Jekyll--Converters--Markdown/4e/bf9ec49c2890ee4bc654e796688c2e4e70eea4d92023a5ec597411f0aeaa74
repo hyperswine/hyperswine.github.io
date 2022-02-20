@@ -1,3 +1,0 @@
-I",<h2 id="so-what">So, what</h2>
-<p>SpectroVM backend. Stuff like asm interpretation. No AOT/JIT transpilation rn. JIT transpilation of rv64 code to x86 code could work. Then we enable hypervisor mode instead of supervisor mode to sandbox the vm. Provide top tier cpu performance while being safe.</p>
-:ET
