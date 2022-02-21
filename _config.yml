@@ -1,15 +1,13 @@
 # Setup
 title:            Eletei
 tagline:          'The enlightened site'
-description:      'Made by yours truly. </br></br>Fact: the masses will enter the the critical stage of the dejection process in around a 8.0 years. Until then, we shall meet again.</br></br>'
-# url:              https://hyde.getpoole.com
-baseurl:          ''
+description:      'Made by yours truly. </br></br>Fact: The world truly sucks.</br></br>'
+baseurl:          '/'
 paginate:         5 # display 5 posts at first. Then scroll down to load more posts (aka pages)
 
 # About and contact
 author:
   name:           'Jason Qin'
-  # url:            https://twitter.com/mdo
 
 # Gems
 plugins:

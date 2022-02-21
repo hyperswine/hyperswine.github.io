@@ -1,10 +1,7 @@
 ---
 layout: page
-title: Project
+title: Spectro Project
 ---
 
-## What?
-
-<p class="message">
-  This is the project page. What is it for? Idk.
-</p>
+## Spectro
+A for fun project. Nothing too much, I just dont like the schoolations.

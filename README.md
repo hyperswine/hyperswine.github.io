@@ -1,2 +1,2 @@
-# The Site
-A site. Actually, more than just any site.
+# It is what it is
+When you look at the site, you see it all for what it is.
