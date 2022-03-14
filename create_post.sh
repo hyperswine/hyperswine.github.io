@@ -13,5 +13,7 @@ cat > "_posts/$DATE-$1.md" << ENDOFFILE
 layout: post
 title: Something
 ---
+
 ## Idea 1
+
 ENDOFFILE
