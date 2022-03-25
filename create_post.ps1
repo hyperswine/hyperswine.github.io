@@ -4,9 +4,10 @@ if ( $args.Count -ne 1 ) {
 }
 
 Write-Output "File suffix specified is $($args[0])"
-$DATE = date "+%Y-%m-%d"
+$DATE = date -format "yyyy-MM-dd"
 Write-Output "Date is $DATE"
+$TITLE = (Get-Culture).TextInfo.ToTitleCase($args[0])
 
 $null >> "_posts/$DATE-$($args[0]).md"
 
-Write-Output "---`nlayout: post`ntitle: Something`n---`n`n## Idea 1`n`n"| Tee-Object "_posts/$DATE-$($args[0]).md"
+Write-Output "---`nlayout: post`ntitle: $TITLE`n---`n`n## Idea 1`n`n"| Tee-Object "_posts/$DATE-$($args[0]).md"
