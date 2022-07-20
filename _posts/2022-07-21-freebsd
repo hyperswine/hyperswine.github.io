@@ -1,0 +1,21 @@
+---
+layout: post
+title: FreeBSD
+---
+
+## Init Main
+
+So freebsd calls `mi_startup` as its first common entry point it seems, at `sys/kern/init_main.c`. Before that, it may be booted from something like GRUB or simply an EFI stub. I think it might also have an MBR stub too.
+
+There, it does a few things. I noticed the first thing it does is to declare pointers to `sysinit` structs. Some double pointers. I think those are meant to be system init tasks, some of which are tabulated. A lot of it is traversing through the sysinit tables' primary and secondary keys (SQL like?), and sorting them, then calling `(*((*sipp)->func))((*sipp)->udata);` to initialise that system. Its done in this manner to make it easy to plug and play a subsystem like the VMM or cpu. And maybe allow dynamic loading of arch dependent subsystems.
+
+`sysinit` is just:
+
+```c
+struct sysinit {
+ void (*func) (void *arg);
+ void *data;
+};
+```
+
+So a function pointer that takes in some unformatted arg. And a piece of data. The actual data looks like `sysinit_data`, which is a struct containing the filename, debug info, msb, lsb, etc. Of a certain value (in a config file?). `SYSINT()` is called in many places, presumably to start each core subsystem.
