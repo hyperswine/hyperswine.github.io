@@ -3,6 +3,7 @@ layout: post
 title: Dumb Human Emotion
 ---
 ## Why are human emotions so bad?
+
 Especially if you have some weird mental connections.\\
 That result in inefficient communication and obsessing over weird things.\\
 I cant do anything\\

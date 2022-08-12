@@ -3,6 +3,7 @@ layout: post
 title: My Mind
 ---
 ## Why my mind sucks
+
 Apparently theres some inefficient connections between specific sets of neurons in the frontal lobe. Something about the connections being a bit messy between the left and right hemispheres.
 
 As a result I am like this. An idiot. Yes, it is what it is. I hate it. Well Idk at least I know I wont be dying like a slave like everyone else. Imagine slaving away.

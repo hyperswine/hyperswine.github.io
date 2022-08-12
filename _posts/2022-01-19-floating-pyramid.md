@@ -2,18 +2,22 @@
 layout: post
 title: Floating Pyramid
 ---
-## What if...
+## What if
+
 I built a floating pyramid on the shore. 4km off the coast. A relatively tall person can see about 5km away, standing on sea level. When standing higher, they can see a bit further.
 So we have this 1km x 1km pyramid base of height 400m. A near perfect square pyramid, with a nice radio/communications/utility box at the top.
 The outer frame is made of glass and some parts of the base are made of glass as a viewing section or lounge. It can be placed ontop of a reef where people can see the marine life beneathe.
 
 ### How to build?
+
 Well we could 3D print it. You would need to print section by section. Then you will need a lot of heavy lfiting equipment. Maybe a few cranes placed on the deck. For ease, print the things close to the dock. Then truck them to the dock and assemble the base on the water. Make sure to watch out for any leakages and stuff because the joints are really important. Also waterproofing and plumbing as well as the risk of any corrosion to metals. Now you place some equipment like cranes and drone handlers. These handlers are like robo workers and have nice 5 fingered hands to carry and place objects as well as use any tool it needs. Especially tools that can be built directly into them. So now the drones and the automatically programmed cranes start to assemble the rest of the floors and frames, bottom up. Dont put all the floors yet because you need to take out the equipment esp the cranes. So for that you will have to finish up the framing of each floor and wall and then wriggle out or dismantle yourself from the pyramid. now Place the floor layers either manually or with help of robo placers. These guys are specialised in droning/flying the panels to the location and helpers on the frame to lower and join the panels to the frame. Do this bottom up as well. When its finished, do the rest of the work (can also be done manually at this stage for the hman element), decorations (paint preapplied on the panels). Make the cabins pretty and test out the functionalities, electronics & comms, plumbings, entertainment. Basically alpha test the entire thing. Then beta test it with a few beta testers assigned to random cabins. Can beta test on a nearby place. When release, make a nice first impression and deploy it onto a nice reef. Unfortunately the Barrier Reef sometimes gets cyclones and storms which Im not sure about but I think the pyramid can withstand something like that. Now sure about waves though, but waves at that distance shouldnt be too big.
 
 ## Or a floating dome?
+
 Perhaps we can have a floating dome, i.e. a semisphere. Made completely out of glass. Even the base. Big enough to withstand storms and tsunami/rogue waves. Well not too big, so try to build it in naturally safe areas like singapore and sydney bay.
 
 ## Maybe even an antigravity spherical dome?
+
 Idk how it would work but...
 I think the principle kind of makes sense.
 Like in space, where you have a constantly spinning object.

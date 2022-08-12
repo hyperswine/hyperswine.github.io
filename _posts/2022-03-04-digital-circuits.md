@@ -41,5 +41,3 @@ We usually call them 'shift registers' since we stream in an n-bit word and each
 We have to time the instructions so they occur when we want them to. And output on a certain, deterministic way, i.e. a negative edge.
 
 - Most components have a clock input that on the positive edge, tells the component to take in inputs `A`. Then on the negative edge, execute/output `B`. Given the component should be fast enough/not as complex so we can time the whole cycle
-
-

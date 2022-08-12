@@ -3,22 +3,27 @@ layout: post
 title: Spectro Update
 ---
 ## RV-1
+
 So I uploaded my RV-1 draft core to github, its pretty rough and I hardly know what I am even doing. But you know its just too cool to give up. Anyway Im having quite a bit of a problem with testing. Something wrong with not being in a builder context with one of the tests.
 
 Im trying to test the ALU and specified x, y, and op. Then I stepped over a clock cycle. Then I called `expect()` on the  io result. Im not sure where it is stopping, maybe I could have some `printf` statements within the test functions too?
 
 ## Spectro VR
+
 Yes it is way too cool. I dunno how but yes. With a nice 3d printer we can try stuff out. But I'll need some space first. At least a few cabinets, the one big one on the wall and 2 mounted on the wall. Also 2 cabinets in the kitchenette.
 
 ## Neutron Kernel interfacing with Spectro Simulator
+
 QEMU is kinda annoying to deal with since it is in C. Like the interface is in C if you want higher level customisation. Which isnt great. I want to build an interface to a spectro runner in rust. Maybe in arcboot or something.
 
 So with QEMU theres a bunch of things with the UART0 ports and stuff which I dont like. Well at least for now. It'd be great to emulate a parallel port and interface with the Spectro ABI within a containerised environment. Like docker or a custom container arch like ardaku containers.
 
 ## Ardaku Containers
+
 An idea for `.wasm` files. So you have a docker like thing with its own isolated filesystem (basically a zip file emulated as a complete HFS like a `.vhd` file) and env variables. Then if you want to emulate riscv you cant really make use of type 1 virtualisation. So you have to stick to type 2 and either interpret the riscv instructions or transpile JIT/AOT. Transpiling AOT means you have to write a wrapper to translate all the instructions to x86 ones, which in theory should run well but for bare metal and lower level code maybe not. Better then to run wasmer on the host system/os + ISA and run the wasm binaries JIT.
 
 ## Spectro Simulator
+
 Basically a RISCV64GC software emulator. You emulate an entire CPU that you want to emulate. Then you
 make an interface for it in yew.rs or something. Or iced-rs. Literally just 32 of the 32-bit registers when in 32-bit mode. Idk how to implement 'machine modes to user modes' i.e. levels 3-0 in hardware. Maybe it isnt too hard. But in software its not that bad, just might not be that efficient.
 

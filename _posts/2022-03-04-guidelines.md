@@ -3,13 +3,11 @@ layout: post
 title: Constitution and Guidelines
 ---
 
-# Guidelines
-
 ## What are guidelines
 
 In the new world, there is no 'law', rather there are guidelines
 
-# Constitution of Eleryia
+## Constitution of Eleryia
 
 Sections:
 
