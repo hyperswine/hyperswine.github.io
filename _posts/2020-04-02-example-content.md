@@ -5,9 +5,7 @@ title: Example content
 
 ## This is a Heading
 
-<div class="message">
-  Hi! This is a message
-</div>
+Hi! This is a message
 
 ## This is some code
 
