@@ -37,3 +37,38 @@ Hot Opinions?:
 ## Definitions
 
 Core Systems => software, prob a library or framework that is vital to the functioning of other software. Not only that, they are prob at the lowest level or the "centre" of the performance and dynamics of the final application software
+
+## Atomics
+
+Lifetimes are required for borrowing. But maybe you dont really need to.
+
+```rust
+// valid in rust, not in rei
+// trying to cast literal as an l-value
+let x = &5
+
+// local anon scope
+{
+    let y = 10
+    // shadow external x defined before it
+    let x = &y
+}
+
+// illegal! x is out of scope
+println(x)
+
+// illegal! y is out of scope
+let z = y
+
+z: macro (expr: reic::Expr) {
+    // generate code or mess with AST
+}
+
+// overload macro
+z: macro () => ()
+
+// define z in another type domain
+z: {}
+
+// z: {}
+```
