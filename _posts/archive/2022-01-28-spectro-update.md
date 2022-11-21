@@ -2,6 +2,7 @@
 layout: post
 title: Spectro Update
 ---
+
 ## Top down thinking and Bottom up thinking
 
 So I found coding stuff from top down to be a great thing. Bottom up also seems ok but maybe its not that great to do the stuff at the bottom. I do like hardware.

@@ -3,9 +3,9 @@ layout: page
 title: About
 ---
 
-## Eletei
+## Elyra
 
-Eletei is one of the names of the true belief of Elyra. It synthesises all of humanity's knowledge from 300,000 years ago until now. And combines that with the holy knowledge given to us by the Goddess Rhine herself.
+The true belief of Elyra. It synthesises all of humanity's knowledge from 300,000 years ago until now. And combines that with the holy knowledge given to us by the Goddess Rhine herself.
 
 ## Spectro
 

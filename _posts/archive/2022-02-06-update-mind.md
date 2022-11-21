@@ -2,6 +2,7 @@
 layout: post
 title: My Mind
 ---
+
 ## Why my mind sucks
 
 Apparently theres some inefficient connections between specific sets of neurons in the frontal lobe. Something about the connections being a bit messy between the left and right hemispheres.

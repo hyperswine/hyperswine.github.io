@@ -2,6 +2,7 @@
 layout: post
 title: Neutron Update
 ---
+
 ## TDD and Full Suite
 
 I was thinking that TDD really helped. Heh that 1531 course truly made sense. When you start with tests you start to see how the program should work. This is nice when you try kernel deving. I guess program deving also works nicely too. Another thing is to start from the top and go down. Then you can see how everything fits in together within the guidelines of software eng. Stuff like KISS, DRY, loose coupling, first principles. Starting from the bottom also helps if you have restrictions. For hardware we are restricted by current technologies (for the next e.g. 3-5 years) and economical reasoning. We want preferrably low costs and high performance within the bounds of what is currently possible. And research and new tech is apparently also costly but idk, I kind of like it too.

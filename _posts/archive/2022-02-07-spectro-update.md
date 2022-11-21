@@ -2,6 +2,7 @@
 layout: post
 title: Spectro Update
 ---
+
 ## Spectro Simulator
 
 I dont really want to use QEMU because then I will have to code for Sifive boards and be restricted to them. Technically I could use QEMU risc-v bare, which seems mostly good and implemented. And they have extra config and extensions. But then I'll have to use C and write the extensions and compile it/set a new configuration. So then I will have to use a 3rd party API. I dont like that idea.

@@ -2,6 +2,7 @@
 layout: post
 title: Neutron Update
 ---
+
 ## Running Neutron + ArcBoot on Spectrum SoC
 
 So we want to compile Neutron to a .lib and link with arcboot.o to form `kernel.img`. This image can then be flashed onto a virtual drive `ssd.vhd` and placed on the host machine, e.g. `dev/ssd.vhd`. Then use verilator to simulate the SoC (RV-1 + PCIE + HDMI/UART for now). So I'd have to somehow connect the PCIE 4.0 lane to ssd.vhd, or we have to simulate an SSD within the SoC and flash the image onto their beforehand, after compiling to verilog. Then I'd have to link the UART port to the output of the terminal somehow, maybe thats possible somehow, with verilator.

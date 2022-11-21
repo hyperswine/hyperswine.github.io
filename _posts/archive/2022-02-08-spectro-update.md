@@ -2,6 +2,7 @@
 layout: post
 title: What to do?
 ---
+
 ## SpectroVM
 
 So it seems like I should try to make a type 2 hypervisor. In that case you could write something like Yuzu where they simulate the ARM cpu completely in software. But pass the shaders and stuff into the host's. It seems like they do that JIT or AOT right before you launch the game. Then you are mostly bottlenecked by the CPU emulation, but the GPU is mostly fine because you can transpile a lot of the vulkan code or something.

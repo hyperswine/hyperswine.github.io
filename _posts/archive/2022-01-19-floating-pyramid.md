@@ -2,6 +2,7 @@
 layout: post
 title: Floating Pyramid
 ---
+
 ## What if
 
 I built a floating pyramid on the shore. 4km off the coast. A relatively tall person can see about 5km away, standing on sea level. When standing higher, they can see a bit further.

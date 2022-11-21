@@ -2,6 +2,7 @@
 layout: post
 title: Dumb Human Emotion
 ---
+
 ## Why are human emotions so bad?
 
 Especially if you have some weird mental connections.\\

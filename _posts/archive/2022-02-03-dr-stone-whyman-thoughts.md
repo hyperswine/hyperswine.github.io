@@ -2,6 +2,7 @@
 layout: post
 title: Thoughts on Whyman, up to Z=227
 ---
+
 ## Analysis of Dr. Stone and Whyman
 
 I want to come at this from a mostly rational perspective. This means,

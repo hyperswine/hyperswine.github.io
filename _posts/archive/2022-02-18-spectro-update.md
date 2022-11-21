@@ -2,9 +2,10 @@
 layout: post
 title: Spectro Update
 ---
+
 ## Yay?
 
-So I kinda overcame a bit of the negus in the brain. Anyway It kinda makes sense now. Maybe? The UART0 output now shows. I literally encapsulated within a macro and called it. And it worked. So...
+So I kinda overcame a bit of the bug in the brain. Anyway It kinda makes sense now. Maybe? The UART0 output now shows. I literally encapsulated within a macro and called it. And it worked. So...
 
 Well now we can start building kernel modules that use the kernel manager. The kernel manager is started on `_start`. Then the services are basically low level functions and algorithms that are builtin to the kernel code running. Higher level services like device service handler, networkd, loggers should be started after boot as a process running in pseudo kernel mode. Those services can be terminated by the user, with reprecussions. Though usually the kernel just resets or restarts them if something critical were to be messed with. So maybe those startup processes should just run in full kernel mode.
 
@@ -17,6 +18,6 @@ So that means stuff like ENV variables, .bashrc + .profile (called rei_profile i
 
 Hmm I think flex bison is pretty good. I could build something scala like that compiles to LLVM IR. That would be the big goal here. YEA
 
-## Negus
+## Bugged
 
-I cant get over the negus. I keep feeling restricted and negus'd. The shame and stuff. I feel like I can go out though. Yea I not only can. I must.
+I cant get over the bugs. I keep feeling restricted and bug'd. The shame and stuff. I feel like I can go out though. Yea I not only can. I must.

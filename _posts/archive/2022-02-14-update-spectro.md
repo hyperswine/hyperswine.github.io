@@ -2,6 +2,7 @@
 layout: post
 title: Spectro Update
 ---
+
 ## Starting to get a bit Anxious again
 
 This always happens. One said to just write it up and build extra functionality when you need it. If you have to, refactor it on demand. Yes you can design from top down but usually its not a great idea unless you know exactly what you're doing. But if you dont, aka, like me. Then you just gotta do it.

@@ -1,7 +1,7 @@
 # Setup
-title:            Eletei
-tagline:          'The enlightened site'
-description:      'Made by yours truly. </br></br>Fact: The world truly sucks.</br></br>'
+title:            Elyra
+tagline:          'Is it possible for things to just work?'
+description:      'It could be possible for things to just work'
 baseurl:          '/'
 paginate:         5 # display 5 posts at first. Then scroll down to load more posts (aka pages)
 

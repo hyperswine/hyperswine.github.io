@@ -2,6 +2,7 @@
 layout: post
 title: Spectro Update
 ---
+
 ## RV-1
 
 So I uploaded my RV-1 draft core to github, its pretty rough and I hardly know what I am even doing. But you know its just too cool to give up. Anyway Im having quite a bit of a problem with testing. Something wrong with not being in a builder context with one of the tests.
