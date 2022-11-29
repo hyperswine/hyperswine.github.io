@@ -1,18 +1,14 @@
-# Setup
 title:            Elyra
 tagline:          'Is it possible for things to just work?'
 description:      'It could be possible for things to just work'
 baseurl:          '/'
-paginate:         5 # display 5 posts at first. Then scroll down to load more posts (aka pages)
+paginate:         5
 
-# About and contact
 author:
   name:           'Jason Qin'
 
-# Gems
 plugins:
   - jekyll-paginate
   - jekyll-gist
 
-# Custom vars
 version:          3.0.0
