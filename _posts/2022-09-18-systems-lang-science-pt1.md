@@ -72,3 +72,59 @@ z: {}
 
 // z: {}
 ```
+
+## Unreal Engine
+
+I found this code:
+
+```hlsl
+bool RayCast(
+ Texture2D Texture, SamplerState Sampler,
+ float3 RayOriginTranslatedWorld, float3 RayDirection,
+ float Roughness, float SceneDepth,
+ uint NumSteps, float StepOffset,
+ float4 HZBUvFactorAndInvFactor, 
+ bool bDebugPrint,
+ out float3 OutHitUVz,
+ out float Level)
+{
+ #if IS_SSGI_SHADER
+  float SlopeCompareToleranceScale = 2.0f;
+ #else
+  float SlopeCompareToleranceScale = 4.0f;
+ #endif
+
+ bool bRayWasClipped;
+ FSSRTRay Ray = InitScreenSpaceRayFromWorldSpace(RayOriginTranslatedWorld, RayDirection, SceneDepth, SceneDepth, SlopeCompareToleranceScale, true, bRayWasClipped);
+
+ bool bHit;
+ bool bUncertain;
+ float3 DebugOutput;
+ CastScreenSpaceRay(Texture, Sampler, 1.0, CreateDefaultCastSettings(), Ray, Roughness, NumSteps, StepOffset, HZBUvFactorAndInvFactor, bDebugPrint, DebugOutput, OutHitUVz, Level, bHit, bUncertain);
+
+ return bHit;
+}
+```
+
+Including more stuff. It works I guess. But I just cant but think what a mess. If screen space global illumination is on, set it to half the usual value. Another thing is how many variables are declared.
+
+The actual driver code is the two functions called and a return value that depends on the second function.
+
+```rust
+ray_cast: (args) -> bool  {
+    let ray = screen_space_ray(args)
+    let b_hit = cast_ray(ray, args)
+    return b_hit
+}
+
+// which can be simplified further
+
+ray_cast: (args) => cast_ray(screen_space_ray(args))
+
+// in the composition form, which may be easier to modify
+
+ray_cast: (args) => cast_ray . screen_space_ray . args
+```
+
+I kind of get why some of the code in industry use would want to be more "verbose" to make it easier to modify more atomically.
+I also kind of get why we need to do that, especially with the hardware we have that encourages SIMT styles of programming.
