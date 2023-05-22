@@ -1,3 +1,3 @@
-# It is what it is
+# Projects
 
-Yes
+My list of projects. Aliases from project-spectre.info among others.
