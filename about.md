@@ -3,14 +3,10 @@ layout: page
 title: About
 ---
 
-## Elyra
+## The mind is like a garden
 
-The true belief of Elyra. It synthesises all of humanity's knowledge from 300,000 years ago until now. And combines that with the holy knowledge given to us by the Goddess Rhine herself.
+An unkept space with overgrown vines and grass. A place where you can delve into away from the world.
 
-## Spectro
+## What the hell is X post?
 
-Spectro is a cool thing I thought of.
-
-## Everything Else
-
-I sometimes post random stuff. On manga, science, tech, etc. Religion and philosophy too. Don't take them too seriously.
+I sometimes post random stuff on fiction, the natural world, religion and philosophy. Don't take them too seriously.

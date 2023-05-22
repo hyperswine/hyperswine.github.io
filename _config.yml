@@ -1,11 +1,11 @@
-title:            Elyra
+title:            Jasen Qin
 tagline:          'Is it possible for things to just work?'
 description:      'It could be possible for things to just work'
 baseurl:          '/'
 paginate:         5
 
 author:
-  name:           'Jason Qin'
+  name:           'Jasen Qin'
 
 plugins:
   - jekyll-paginate
