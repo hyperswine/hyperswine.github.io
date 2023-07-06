@@ -186,3 +186,7 @@ In neutron, the kernel itself doesnt provide any abstractions. It's main job is 
 Some specific things I dont really like:
 
 - `println` or `print` or `system.out.println`. They assume things like `stdin`, `stdout`, `stderr` which Im not fond of
+
+## Observation
+
+If you could reduce an embarrasingly parallel map or iteration to primitive... computations! You can do it even faster. You could then do things in an SIMD manner. Theres also other ways like struct of arrays.

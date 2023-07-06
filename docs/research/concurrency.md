@@ -19,3 +19,5 @@ To interleave multiple transition systems together, we could
 $TS_1 \parallel TS_2 = (S_1 \times S_2, Act_1 \times Act_2, \rightarrow', I_1 \times I_2, AP_1 \cup AP_2, L_1 \cup L_2)$
 
 So basically combine the initial states. Then get the cartesian product of the states and the cart product of the edges. Also get the new transition relation by basically relating each new state and transition together.
+
+The transition function is quite interesting. Basically for each edge in the first one over some action alpha, you would have an edge in the composed transition system too. Instead of `s1 -> s1'`. You would have `(s1, s2) -> (s1', s2)`. So for a state s1 in the first system, you would see it reflected like m times if there are m elements in the second system.
