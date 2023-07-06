@@ -169,7 +169,7 @@ Parametric programming is when the behaviour of a function is similar regardless
 
 So even though concepts like static and dynamic dispatch exist, they are not a science. People will say “generally do X” or “generally do Y in this other case”. They won’t say “do X in a Z manner to gain a 20% decrease in overall latency in system S”, because 1. its quite complex, 2. we want general advice and there are many different platforms, 3. it hasn’t been studied formally.
 
-## Enlightened Kernel Architecture: Utility, Security, and Performance
+## Kernel Architecture: Utility, Security, and Performance
 
 Kernels are a key part of a useful computing system. There have been many kernels implemented as a part of a greater system, e.g. an operating system. Such kernels include linux, bsd, nt, sun, dos kernel, etc. These kernels have been developed into their modern counterparts and widely used in GNU/Linux, Android (Google/Linux), Windows, MacOS, FreeBSD, and other smaller embedded systems. Some systems like the Pi may also have a small RTOS based on something like RODOS or ThreadX.
 
