@@ -17,7 +17,6 @@ Libraries:
   - `core::arch` for complete wrappers around platform dependent primitives
   - `std::spectro`, an actual functional HDL for building all sorts of hardware
 - `arcen`, a very light gui framework
-:::
 
 ## What can you do?
 
