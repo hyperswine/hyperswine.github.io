@@ -91,7 +91,7 @@ const config = {
             position: 'left',
           },
           {
-            href: "https://github.com/hyperswine/projects",
+            href: "https://github.com/hyperswine.github.io",
             label: "GitHub",
             position: "right",
           },
