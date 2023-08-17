@@ -21,3 +21,12 @@ $TS_1 \parallel TS_2 = (S_1 \times S_2, Act_1 \times Act_2, \rightarrow', I_1 \t
 So basically combine the initial states. Then get the cartesian product of the states and the cart product of the edges. Also get the new transition relation by basically relating each new state and transition together.
 
 The transition function is quite interesting. Basically for each edge in the first one over some action alpha, you would have an edge in the composed transition system too. Instead of `s1 -> s1'`. You would have `(s1, s2) -> (s1', s2)`. So for a state s1 in the first system, you would see it reflected like m times if there are m elements in the second system.
+
+## Analysis of Systems
+
+We can think about analysis in a few ways.
+
+Maybe integrated vs local methods. From first principles, integrated methods dont seem to bad. You can combine several programs together. Then use an axiomatic proof scheme to check for preconditions and postconditions. That could be a way to verify certain propositional or LTL properties. Eventuality and Globalness are very useful properties.
+
+
+
