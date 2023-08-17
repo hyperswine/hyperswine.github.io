@@ -27,6 +27,3 @@ The transition function is quite interesting. Basically for each edge in the fir
 We can think about analysis in a few ways.
 
 Maybe integrated vs local methods. From first principles, integrated methods dont seem to bad. You can combine several programs together. Then use an axiomatic proof scheme to check for preconditions and postconditions. That could be a way to verify certain propositional or LTL properties. Eventuality and Globalness are very useful properties.
-
-
-
