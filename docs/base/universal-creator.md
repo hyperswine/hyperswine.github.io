@@ -16,3 +16,22 @@ As a lead engineer at quantii, I am proud to announce the Quantii Fabricator, an
 *uses some substractive techniques such as CNCing for bigger chunks
 **uhh... this part will take a bit longer to implement
 :::
+
+---
+
+<script src="https://giscus.app/client.js"
+        data-repo="hyperswine/hyperswine.github.io"
+        data-repo-id="R_kgDOGm36XA"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOGm36XM4CcCgF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+

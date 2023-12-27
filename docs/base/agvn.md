@@ -19,3 +19,22 @@ With all the pain of society, perhaps their is an ark of hope in the time of cop
 - [Busan Floating City](https://www.cnbc.com/2022/04/26/worlds-first-floating-city-prototype-busan-south-korea.html)
 - [Dubai Floating City](https://www.thenationalnews.com/uae/environment/world-s-first-floating-city-could-soon-become-a-reality-abu-dhabi-forum-hears-1.977243)
 - [Netherlands Floating City](https://www.atlasobscura.com/articles/floating-houses-netherlands)
+
+---
+
+<script src="https://giscus.app/client.js"
+        data-repo="hyperswine/hyperswine.github.io"
+        data-repo-id="R_kgDOGm36XA"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOGm36XM4CcCgF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+

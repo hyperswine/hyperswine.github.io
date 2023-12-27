@@ -23,3 +23,22 @@ RISC-V is a first class citizen. Neutron is optimised for RISC systems and RISC-
 ## Benchmarks
 
 I would love to show some benchmarks. But later. Some would be in a VM.
+
+---
+
+<script src="https://giscus.app/client.js"
+        data-repo="hyperswine/hyperswine.github.io"
+        data-repo-id="R_kgDOGm36XA"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOGm36XM4CcCgF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+

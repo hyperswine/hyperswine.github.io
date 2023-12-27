@@ -140,3 +140,21 @@ modified_scope_expr: m1_expr | m2_expr
 m1_expr: raw_ident ~ scope_expr
 m2_expr: raw_ident ~ macro_params? scope_expr
 ```
+
+---
+
+<script src="https://giscus.app/client.js"
+        data-repo="hyperswine/hyperswine.github.io"
+        data-repo-id="R_kgDOGm36XA"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOGm36XM4CcCgF"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
