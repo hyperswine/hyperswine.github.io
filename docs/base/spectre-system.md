@@ -140,19 +140,20 @@ The spectre hardware design involves a set of compute units such as a minimalist
 
 ---
 
-<script type="module" src="https://unpkg.com/giscus?module"></script>
+<!-- <script type="module" src="https://unpkg.com/giscus?module"></script> -->
 
-<giscus-widget repo="hyperswine/projects"
-        repoid="R_kgDOIZg-sQ"
-        category="Announcements"
-        categoryid="DIC_kwDOIZg-sc4CSmin"
-        mapping="pathname"
-        strict="0"
-        reactionsenabled="1"
-        emitmetadata="0"
-        inputposition="top"
-        theme="preferred_color_scheme"
-        lang="en"
-        loading="lazy"
-        crossorigin="anonymous">
-</giscus-widget>
+<script src="https://giscus.app/client.js"
+        data-repo="hyperswine/hyperswine.github.io"
+        data-repo-id="R_kgDOGm36XA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGm36XM4CcCgD"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
