@@ -121,3 +121,13 @@ ancestor X Y :-
   father X Z
   father Z Y
 ```
+
+## How do existing Prolog implementations do their thing?
+
+Many implementations use the WAM as a basis. The original implementation based on (I think cambridge or some other english university) was designed by David Warren and kind of worked quite well. It was quite powerful in terms of what it could do, its features. I think it wasnt the greatest in performance, but was good enough for many things like AI and databases and searching/planning.
+
+SWI-Prolog, made by Jan Wielemaker is probably the most widely used and developed version. It supports ISO Prolog to large extent, though not sure if its fully compliant. I've read some of its source code and it looks decent for a program that was started a while back. It beats other open source implementations in performance by quite a bit, modern and old alike: scryer-prolog, eclipse prolog, etc. I heard good things about scryer-prolog too, but last I checked its benchmarks were okay-ish but not as competitive as SWI.
+
+Then theres SICSTus, probably the gold standard in high performance prolog. It seems to use a combination of JIT compilation and hueristics to achieve pretty high performance. By almost an order of magnitude or two compared to SWI sometimes. It probably also does type inference and some complex memory representation and management. Maybe some complex and efficient backtracking too. It does compile to native code, probably something it made itself as it is quite a bit old now (I dont think it uses LLVM, though maybe newer versions might). JIT does incur some initial latency and therefore time penalties but can more than make up for it when it gets going. Things like cranelift for WASM could also speed up JIT compilation, and a WASM runtime to allow near native performance in many cases (or so Ive heard, probably should look more into it).
+
+I noticed in many prolog implementations, there is also a lot of checking. A lot of checking between executions. It might have been fine back then to make sure it actually works, but the checking Im talking about are things like just seeing whether or not an operation succeeded. I think if we want high performance, we really do need to minimize dynamic checks where possible. Maybe type inference could help with that, and dynamic types otherwise rather than a cursed mix of static-ish operations on a virtual machine.
