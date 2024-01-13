@@ -25,5 +25,3 @@ How does haskell implement data structures?
 -- a binary balanced tree
 data Map k v = Bin Size k v (Map k v) (Map k v) | Tip
 ```
-
-[Under Construction]
