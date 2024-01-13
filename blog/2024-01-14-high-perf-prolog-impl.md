@@ -99,7 +99,7 @@ Parallel Search and Pattern Matching: Prolog's search and pattern matching opera
 
 Data-Intensive Operations on large sets of data, especially those that involve simple, repeatable computations (like processing lists or arrays), can be significantly sped up on GPUs.
 
-Standard vs. Accelerated Predicates: Offer both standard predicates like maplist for CPU execution and specialized versions like maplist_accel for GPU-accelerated execution. This allows the programmer to explicitly choose the acceleration for computationally intensive tasks.
+Standard vs. Accelerated Predicates: Offer both standard predicates like `maplist` for CPU execution and specialized versions like `maplist_accel` for GPU-accelerated execution. This allows the programmer to explicitly choose the acceleration for computationally intensive tasks.
 
 Use Julia for interop and calling external things, not C, or C but ensure that it is very portable.
 Or compile the julia program to C and link that. Probably going to have to use julia to interact with LLVM.
