@@ -1,5 +1,9 @@
 ---
-sidebar_position: 1
+date: 2022-12-17
+name: Jasen Qin
+title: Concurrency
+url: https://github.com/hyperswine
+email: jasen.qin33@gmail.com
 ---
 
 # Short Formalism of Concurrency
