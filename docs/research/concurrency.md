@@ -1,12 +1,10 @@
 ---
 date: 2022-12-17
 name: Jasen Qin
-title: Concurrency
+title: Concurrency, Fundamentals
 url: https://github.com/hyperswine
 email: jasen.qin33@gmail.com
 ---
-
-# Short Formalism of Concurrency
 
 What even is concurrency? Think about being able wait for one thing to finish while doing something else. Concurrency is basically just that. Several independent tasks are executing in overlapping time intervals. Parallelism actually implies concurrent execution, but not necessarily the other way around.
 
