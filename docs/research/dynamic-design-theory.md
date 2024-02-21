@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Dynamic Design Theory
+**General Thoughts on Dynamic Design**
 
 **By Jasen Qin.**
 

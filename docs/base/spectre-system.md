@@ -29,6 +29,7 @@ The three main types of executors:
 - I-type executors
 - D-type SIMD/T executors
 - A-type executors
+
 :::
 
 A spectre instruction targets a specific executor. It first gets decoded in decode stage 1 and placed into queue stage 1. There it is dequeued to a chosen executor cluster. It is then decoded again and queued to execute in an available executor suited for it.
@@ -80,30 +81,30 @@ The spectre system is unique in that is has a uniform instruction set. That mean
 The spectre ISA is quite simple. It consists of like 10 atomic instructions:
 
 ```rust
-Instruction:
-    // Scalar Computation
-    Add
-    Sub
-    Mult
-    Div
-    Modulo
-    MultiplyAccumulate
-    // Logic
-    And
-    Or
-    Xor
-    Not
-    Shift
-    // Vector Computation
-    Map
-    // Control
-    Jump
-    // Memory Access
-    Copy
-    // Acceleration
-    Sha256
-    Lookup
-    FourierTransform
+Instruction: enum
+  // Scalar Computation (Int/Float, 8,16,32,64,128 - reuses 128-bits)
+  Add
+  Sub
+  Mult
+  Div
+  Modulo
+  MultiplyAccumulate
+  // Logic
+  And
+  Or
+  Xor
+  Not
+  Shift
+  // Vector Computation
+  Map
+  // Control
+  Jump
+  // Memory Access
+  Copy
+  // Acceleration
+  Sha256
+  Lookup
+  FourierTransform
 ```
 
 Despite being a stack machine of sorts, there is no explicit `Store` instruction. Instead, it is built into certain arithmetic and bitwise instructions to redirect the output to the stack pointer, and an option to increment it by that amount. There are also options to overwrite the stack pointer so if your using a linear atomic value, it just gets used up in that instruction.
@@ -118,7 +119,7 @@ Less is more.
 
 ---
 
-## Expected Performance
+<!-- ## Expected Performance
 
 I haven't tested it yet. But Im quite confident that it could see some pretty significant performance increases.
 
@@ -135,7 +136,8 @@ Notice that the SN888 is arm-based and has a ton of extra stuff on it which I ki
 :::note
 Sure, you don't need to be $100\%$ efficient, but even $97\%$ is much much better than $40\%$ or even $70\%$. Especially for devices we carry on us and use as supplementing tools. For high end servers and computing racks, the philosophy changes somewhat.
 
-The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC.
+The spectre hardware design involves a set of compute units such as a minimalist SoC and interconnect system. We rely more on wireless connectivity through 2.4-5GHz connections for peripherals such as mice and keyboards, headsets and displays. Charging is done through magnetised thunderbolt 5. Other peripherals such as 2FA keys and crypto keys are accomplished through NFC. -->
+
 :::
 
 ---

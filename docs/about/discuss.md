@@ -8,7 +8,7 @@ General Dicussion Forum.
 
 <script type="module" src="https://unpkg.com/giscus?module"></script>
 
-<giscus-widget repo="hyperswine/projects"
+<giscus-widget repo="hyperswine/hyperswine.github.io"
         repoid="R_kgDOIZg-sQ"
         category="Announcements"
         categoryid="DIC_kwDOIZg-sc4CSmin"

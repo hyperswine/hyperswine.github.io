@@ -8,7 +8,7 @@ const katex = require("rehype-katex")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Jasen Qin",
-  tagline: "\"And as I gazed upon the horizon, I saw the creator's will and its magnificence among the unenlightened hive\"",
+  tagline: "\"And as I gazed upon the horizon, I saw the creator's will and its magnificence among the sheep\"",
   url: "https://n.project-spectre.info",
   baseUrl: "/",
   onBrokenLinks: "throw",

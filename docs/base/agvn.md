@@ -37,4 +37,3 @@ With all the pain of society, perhaps their is an ark of hope in the time of cop
         crossorigin="anonymous"
         async>
 </script>
-

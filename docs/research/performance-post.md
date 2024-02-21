@@ -274,6 +274,11 @@ time: 828.458µs
 time: 272µs
 ```
 
+<!--
+**Program 2**
+Observe the output of Instruments.
+-->
+
 ---
 
 <h2 style={{textAlign: "center"}}>Discuss</h2>

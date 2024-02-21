@@ -34,4 +34,3 @@ As a lead engineer at quantii, I am proud to announce the Quantii Fabricator, an
         crossorigin="anonymous"
         async>
 </script>
-
