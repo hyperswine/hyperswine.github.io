@@ -147,8 +147,8 @@ The spectre hardware design involves a set of compute units such as a minimalist
 <script src="https://giscus.app/client.js"
         data-repo="hyperswine/hyperswine.github.io"
         data-repo-id="R_kgDOGm36XA"
-        data-category="Q&A"
-        data-category-id="DIC_kwDOGm36XM4CcCgF"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGm36XM4CcCgD"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
@@ -156,6 +156,7 @@ The spectre hardware design involves a set of compute units such as a minimalist
         data-input-position="bottom"
         data-theme="preferred_color_scheme"
         data-lang="en"
+        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>

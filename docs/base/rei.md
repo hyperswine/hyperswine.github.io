@@ -35,8 +35,8 @@ Don't know how it works? Try it in `rein`, a lightweight environment built speci
 <script src="https://giscus.app/client.js"
         data-repo="hyperswine/hyperswine.github.io"
         data-repo-id="R_kgDOGm36XA"
-        data-category="Q&A"
-        data-category-id="DIC_kwDOGm36XM4CcCgF"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOGm36XM4CcCgD"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
@@ -44,6 +44,7 @@ Don't know how it works? Try it in `rein`, a lightweight environment built speci
         data-input-position="bottom"
         data-theme="preferred_color_scheme"
         data-lang="en"
+        data-loading="lazy"
         crossorigin="anonymous"
         async>
 </script>
