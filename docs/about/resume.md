@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # About Me - Jasen Qin
 
-I am interested in a variety of computer-related technical subjects with years of experience in most popular software suites and development frameworks. I despise soulless work and wish to put all my best into creating a unique and outstanding product.
+I am interested in a variety of computer-related technical subjects with years of experience in most popular software suites and development frameworks.
 
 ## Objectives
 
