@@ -4,11 +4,11 @@ sidebar_position: 1
 
 # About Me - Jasen Qin
 
-I am interested in a variety of computer-related technical subjects with years of experience in most popular software suites and development frameworks.
+I am familiar with a variety of computer-related technical subjects with years of experience in most popular software suites and development frameworks.
 
 ## Objectives
 
-I wish to apply new and enlightened software concepts to the real world, and create working, reliable and user friendly applications. I am highly inspired to have the chance to execute real worlds projects on a wide range of computer science and software development related work and become more invested in what I enjoy doing.
+I wish to apply interesting concepts to the real world, and create working, reliable and user friendly applications. I am inspired to work on real world projects with a range of theoretical and practical concepts and become more invested in what I enjoy doing.
 
 ## Education
 
