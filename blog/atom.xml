@@ -2,11 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://n.project-spectre.info/blog</id>
     <title>Jasen Qin Blog</title>
-    <updated>2024-04-23T00:00:00.000Z</updated>
+    <updated>2025-05-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://n.project-spectre.info/blog"/>
     <subtitle>Jasen Qin Blog</subtitle>
     <icon>https://n.project-spectre.info/img/Rei-Light.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Observations]]></title>
+        <id>/2025/05/09/blog</id>
+        <link href="https://n.project-spectre.info/blog/2025/05/09/blog"/>
+        <updated>2025-05-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Where the hell do I begin...]]></summary>
+        <content type="html"><![CDATA[<p>Where the hell do I begin...</p><p>Been quite ... busy for the last few years. Busily wasting time I guess.
+Looked at a bunch of stuff.
+Practiced a few things here and there but also not really.
+Overall feels like that I could definitely practice more but should not constrain myself
+Not really using Mind half the time, just autopilot
+Just allowing past to seep in half the time to haunt</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Observations]]></title>
         <id>/2024/04/23/observations-on-open-source-1</id>

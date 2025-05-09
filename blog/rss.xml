@@ -4,10 +4,23 @@
         <title>Jasen Qin Blog</title>
         <link>https://n.project-spectre.info/blog</link>
         <description>Jasen Qin Blog</description>
-        <lastBuildDate>Tue, 23 Apr 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 09 May 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Observations]]></title>
+            <link>https://n.project-spectre.info/blog/2025/05/09/blog</link>
+            <guid>/2025/05/09/blog</guid>
+            <pubDate>Fri, 09 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Where the hell do I begin...]]></description>
+            <content:encoded><![CDATA[<p>Where the hell do I begin...</p><p>Been quite ... busy for the last few years. Busily wasting time I guess.
+Looked at a bunch of stuff.
+Practiced a few things here and there but also not really.
+Overall feels like that I could definitely practice more but should not constrain myself
+Not really using Mind half the time, just autopilot
+Just allowing past to seep in half the time to haunt</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Observations]]></title>
             <link>https://n.project-spectre.info/blog/2024/04/23/observations-on-open-source-1</link>
