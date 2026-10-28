@@ -10,6 +10,8 @@ description: The FP-RISC language implementation, with a compiler, the Sol inter
 
 [Repository](https://github.com/hyperswine/fprisc) · Status: under active development
 
+FP-RISC came out of the Rei language prototype and is essentially the spirit of it. It can also be seen as the first reference implementation of NewML, a new language in the ML family (alongside SML and Haskell).
+
 ## Design
 
 - **Native code from typed IR.** Native ahead-of-time compilation goes through verified typed IR, with direct selectors for RV32/RV64, AArch64 and x64.

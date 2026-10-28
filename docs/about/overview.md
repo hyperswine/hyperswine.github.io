@@ -27,4 +27,8 @@ Most of my time goes into a small stack of systems built from the language up, a
 - **[QRepo](../projects/qrepo.md)** is a checkpoint tool written in FP-RISC.
 - **[coscad](../projects/coscad.md)**, **[NeoMusic](../projects/neomusic.md)** and **[Infera](../projects/infera.md)** are standalone languages for CAD, music and logic programming.
 
+## Lineage
+
+FP-RISC grew out of the Rei language prototype and is the first reference implementation of NewML, QOS is the reference implementation of the Neutron kernel, and SimpleRisc is the soft prototype of the Spectre hardware system. All of these are eventually part of Quanti, an open source vertical project.
+
 Everything is on [GitHub](https://github.com/hyperswine). See [all projects](../projects/index.md), or the [résumé](./resume.md) for background.

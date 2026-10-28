@@ -9,6 +9,8 @@ description: The projects I am working on right now.
 
 What I'm working on right now. Most of it is written in Haskell, and several projects build on each other: FP-RISC is the language, QOS is the operating system written in it, and SimpleRisc is a RISC-V core that FP-RISC programs run on.
 
+These are all eventually part of Quanti, an open source vertical project. FP-RISC grew out of the Rei language prototype, QOS is the reference implementation of the Neutron kernel, and SimpleRisc is the soft prototype of the Spectre hardware system.
+
 ## Systems
 
 - **[FP-RISC](./fprisc.md)**: a language implementation with a compiler, an interpreter (Sol), libraries and a bare-metal runtime.

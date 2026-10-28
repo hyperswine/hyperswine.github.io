@@ -10,6 +10,8 @@ description: An operating system written in FP-RISC, available as QOS Native and
 
 [Repository](https://github.com/hyperswine/qos) · Status: prototype, under active development
 
+QOS is the reference implementation of the Neutron kernel project.
+
 ## What's in it
 
 - **Two forms.** QOS Native, and QOS Portable, which runs inside a host process. QOS Portable also runs on Linux riscv64. The repository records a STAR64 board with HDMI and a keyboard.

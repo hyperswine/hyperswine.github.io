@@ -10,6 +10,8 @@ description: An RV32IM(C) soft processor in Clash, tested on the Tang Nano 20K F
 
 [Repository](https://github.com/hyperswine/simple-risc) · Status: active, with a roadmap toward a full RISC-V core
 
+SimpleRisc is the soft prototype of the Spectre hardware system.
+
 ## Highlights
 
 - Unmodified GCC output and the FP-RISC runtime run on the board.
