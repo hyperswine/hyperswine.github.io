@@ -34,6 +34,7 @@ const config = {
       /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
       ({
         hashed: true,
+        indexBlog: false,
       }),
     ]
   ],
@@ -48,6 +49,7 @@ const config = {
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
+        blog: false,
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -77,7 +79,6 @@ const config = {
         logo: { alt: "Jasen Qin", src: "img/logo.svg" },
         items: [
           { type: "docSidebar", sidebarId: "projects", label: "Projects", position: "left" },
-          { to: "/blog", label: "Writing", position: "left" },
           { type: "docSidebar", sidebarId: "research", label: "Research", position: "left" },
           { to: "/docs/about", label: "About", position: "left" },
           { href: "https://github.com/hyperswine", label: "GitHub", position: "right" },
@@ -87,7 +88,6 @@ const config = {
         style: "light",
         links: [
           { label: "Projects", to: "/docs/projects" },
-          { label: "Writing", to: "/blog" },
           { label: "About", to: "/docs/about" },
           { label: "GitHub", href: "https://github.com/hyperswine" },
         ],
