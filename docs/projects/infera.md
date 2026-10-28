@@ -30,4 +30,3 @@ To build from source: `cabal build && cabal install`.
 
 ## How it fits
 
-Related writing: [Higher Performance Prolog](/blog) on the blog.
