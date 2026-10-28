@@ -1,67 +1,29 @@
 import React from "react"
-import clsx from "clsx"
+import Link from "@docusaurus/Link"
 import styles from "./styles.module.css"
-import Spectre from "/static/img/Spectre.png"
-import Rei from "/static/img/Rei-Light.png"
-import Neutron from "/static/img/Neutron.png"
-import Nova from "/static/img/NOVA-FPGA.png"
-import Quantii from "/static/img/Quantii.png"
-import AGVN from "/static/img/AGVN-System.png"
 
-const FeatureList = [
-  {
-    title: <a href="../docs/base/spectre-system">Spectre System</a>,
-    Img: Spectre,
-    description: <>Spectre is a computing system</>,
-  },
-  {
-    title: <a href="../docs/base/rei">Rei</a>,
-    Img: Rei,
-    description: <>A Language that just works</>,
-  },
-  {
-    title: <a href="../docs/base/neutron">Neutron</a>,
-    Img: Neutron,
-    description: <>A minimalist kernel built for efficiency and performance</>,
-  },
-  {
-    title: <a href="../docs/base/agvn">AGVN System</a>,
-    Img: AGVN,
-    description: <>A new and enlightened governing system for nations</>,
-  },
-  // {
-  //   title: <a href="../docs/nova">Nova</a>,
-  //   Img: Nova,
-  //   description: <>A complete FPGA solution</>,
-  // },
-  // {
-  //   title: <a href="../docs/universal-fabricator">Quantii</a>,
-  //   Img: Quantii,
-  //   description: <>A complete fabrication solution. The ultimate solution</>,
-  // },
+const Projects = [
+  { name: "FP-RISC", to: "/docs/projects/fprisc", tag: "Language", desc: "A compiler, interpreter and runtime, with native code from typed IR for RISC-V, AArch64 and x64." },
+  { name: "QOS", to: "/docs/projects/qos", tag: "OS", desc: "An operating system written in FP-RISC, in Native and Portable forms." },
+  { name: "SimpleRisc", to: "/docs/projects/simple-risc", tag: "Hardware", desc: "An RV32IM(C) soft core in Clash, running on a Tang Nano 20K." },
+  { name: "QRepo", to: "/docs/projects/qrepo", tag: "Tool", desc: "A local checkpoint tool written in native FP-RISC." },
+  { name: "coscad", to: "/docs/projects/coscad", tag: "CAD", desc: "A CAD language that compiles to OpenSCAD and print-ready STLs." },
+  { name: "NeoMusic", to: "/docs/projects/neomusic", tag: "Music", desc: "Algebraic music notation that renders to audio, MIDI and sheets." },
+  { name: "Infera", to: "/docs/projects/infera", tag: "Logic", desc: "A Prolog-inspired language with modes, tabling and CLP(Z)." },
 ]
-
-function Feature({ Img, title, description }) {
-  return (
-    <div className={clsx("col col--4")}>
-      <div className="text--center">
-        <img src={Img} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
-      </div>
-    </div>
-  )
-}
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
+    <section className={styles.section}>
       <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+        <h2 className={styles.heading}>Current projects</h2>
+        <div className={styles.grid}>
+          {Projects.map((p) => (
+            <Link key={p.name} to={p.to} className={styles.card}>
+              <span className={styles.tag}>{p.tag}</span>
+              <h3>{p.name}</h3>
+              <p>{p.desc}</p>
+            </Link>
           ))}
         </div>
       </div>
