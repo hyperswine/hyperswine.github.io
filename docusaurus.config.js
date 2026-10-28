@@ -8,12 +8,12 @@ const katex = require("rehype-katex")
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Jasen Qin",
-  tagline: "\"And as I gazed upon the horizon, I saw the creator's will and its magnificence among the sheep\"",
+  tagline: "Building a language, an operating system and the hardware it runs on, plus a few tools along the way.",
   url: "https://n.project-spectre.info",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/Rei-Light.png",
+  favicon: "img/logo.svg",
 
   // If you aren't using GitHub pages, you don't need these
   organizationName: "hyperswine",
@@ -68,34 +68,30 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        { name: "description", content: "Jasen Qin (hyperswine): FP-RISC, QOS, SimpleRisc, coscad, NeoMusic and other projects." },
+      ],
+      colorMode: { respectPrefersColorScheme: true },
       navbar: {
-        title: "Overview",
+        title: "Jasen Qin",
+        logo: { alt: "Jasen Qin", src: "img/logo.svg" },
         items: [
-          { to: '/blog', label: 'Posts', position: 'left' },
-          {
-            type: "docSidebar",
-            position: "left",
-            label: "Works",
-            sidebarId: "main"
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'research',
-            label: 'Research',
-            position: 'left',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'about',
-            label: 'About',
-            position: 'left',
-          },
-          {
-            href: "https://github.com/hyperswine.github.io",
-            label: "GitHub",
-            position: "right",
-          },
+          { type: "docSidebar", sidebarId: "projects", label: "Projects", position: "left" },
+          { to: "/blog", label: "Writing", position: "left" },
+          { type: "docSidebar", sidebarId: "research", label: "Research", position: "left" },
+          { to: "/docs/about", label: "About", position: "left" },
+          { href: "https://github.com/hyperswine", label: "GitHub", position: "right" },
         ],
+      },
+      footer: {
+        style: "light",
+        links: [
+          { label: "Projects", to: "/docs/projects" },
+          { label: "Writing", to: "/blog" },
+          { label: "About", to: "/docs/about" },
+          { label: "GitHub", href: "https://github.com/hyperswine" },
+        ],
+        copyright: `© ${new Date().getFullYear()} Jasen Qin`,
       },
       prism: {
         theme: lightCodeTheme,
